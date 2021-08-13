@@ -5,6 +5,8 @@ navbar:
   left:
     - text: "Home"
       href: index.html
+    - text: "Career"
+      href: profile.html  
   right: 
     - icon: fa-envelope fa-lg
       href: mailto:<andres.marfh@gmail.com>
@@ -16,4 +18,5 @@ navbar:
       href: https://www.linkedin.com/in/manuel-andres-martinez-patino-560a4b84/
 output:
   html_document:
-    theme: darkly
+    theme: sandstone
+    highlight: tango

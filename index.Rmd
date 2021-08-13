@@ -2,11 +2,30 @@
 title: "My Profile"
 ---
 
-# About Me
+## About Me
 
 <p align="justify/center">
 I have two bachelor’s degree in Finance and Economics from the Universidad Sergio Arboleda, and I also have a Msc in Stochastic Engineering from the University of Applied Sciences in Munich Germany. Currently I hold a position as professor of Statistics at the Mathematics Department of the Universidad Externado. During my academic career I have been professor for lectures like Risk Management, Financial Derivatives and Capital Markets. Right now, I pursue a Phd in Business Administration and my research topic is about the measure of the volatility in different kind of assets using  probabilistic theory, Bayesian analysis and stochastic models to forecast time series of different kinds of risk process.
 </p>
+
+
+### University afilitaion
+
+Universidad Externado de Colombia
+
+Departamento de Matemáticas
+
+manuel.martinez@uexternado.edu.co
+
+### Current Studies
+
+Phd in Management
+
+Universidad de los Andes
+
+ma.martinezp12@uniandes.edu.co
+
+
 
 
 
