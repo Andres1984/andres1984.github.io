@@ -10,6 +10,10 @@ navbar:
       href: mailto:<andres.marfh@gmail.com>
     - icon: fa-github fa-lg
       href: http://github.com/Andres1984/
+    - icon: fa-envelope fa-lg
+      href: https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001611846
+    - icon: fa-linkedin fa-lg
+      href: https://www.linkedin.com/in/manuel-andres-martinez-patino-560a4b84/
 output:
   html_document:
     theme: darkly
