@@ -1,0 +1,14 @@
+name: "my-website"
+navbar:
+  title: "Andrés Martínez"
+  left:
+    - text: "Home"
+      href: index.html
+  right: 
+    - icon: fa-envelope fa-lg
+      href: mailto:<andres.marfh@gmail.com>
+    - icon: fa-github fa-lg
+      href: http://github.com/Andres1984/
+output:
+  html_document:
+    theme: darkly
