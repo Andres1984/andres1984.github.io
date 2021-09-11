@@ -16,6 +16,8 @@ navbar:
       href: https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001611846
     - icon: fa-linkedin fa-lg
       href: https://www.linkedin.com/in/manuel-andres-martinez-patino-560a4b84/
+    - icon: fa-cube fa-lg
+      href: https://andres-martinez1984.shinyapps.io/portfoliogithub/
 output:
   html_document:
     theme: lumen
