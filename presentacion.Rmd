@@ -1,0 +1,547 @@
+---
+title: "Semillero de Analítica de Negocios"
+author: "Departamento de Matemáticas"
+date: "15 de Septiembre de 2021"
+css: styles.css
+link-citations: yes
+logo: externado.png
+biglogo : externado.png
+site: "bookdown::bookdown_site"
+output:
+  ioslides_presentation: default
+  
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+require("knitcitations")
+
+options("citation_format" = "pandoc")
+```
+
+
+```{r, echo=FALSE, message=FALSE,results='hide',warning=FALSE}
+#install.packages("bookdown")
+#Librerias que se van a utilizar
+library(kableExtra)# Tablas
+library(quantmod)# Descarga de datos
+library(knitcitations)#Citaciones
+library(knitr)#R Markdown
+library(psych)# Medidas descriptivas
+library(RCurl)# La dirección web
+library(readr)# La base de datos
+library(dplyr)# Transformación de tablas
+library(plotly)# Gráficos Interactivos
+library(ggplot2)# Gráficos 
+library(corrplot)# Gráfico de Correlación
+library(quadprog)# Programación puede necesitar otra 
+library(tidyquant)
+library(tseries)
+library(TSA)
+library(rugarch)
+library(car)
+library(MTS)
+library(lmtest)
+library(forecast)
+library(gganimate)
+library(gridExtra)
+library(cowplot)
+```
+
+
+
+
+
+## Introducción
+
+
+* Desarrollar competencias académicas implementando conceptos teóricos en escenarios reales
+* Construcción de modelos orientados a la comprensión de cada etapa del proceso de toma de decisiones. 
+* Evaluar el rendimiento de una estrategia
+* Entender el impacto de cada uno de los posibles escenarios.
+
+
+## Metodología
+
+* Espacios de trabajo conjunto
+* Caso de estudio
+* Workshop 
+
+## Ciencia de Datos en las Finanzas
+
+
+```{r,  message=FALSE,echo=FALSE,warning=FALSE}
+
+p1 <- ggdraw() + draw_image("/Users/andresmartinez/Documents/GitHub/andres1984.github.io/portfolio.github.io/louis.png", scale = 0.9)
+p2 <- ggdraw() + draw_image("/Users/andresmartinez/Documents/GitHub/andres1984.github.io/portfolio.github.io/Jim_Simons_at_MSRI.jpg", scale = 0.9)
+
+plot_grid(p1, p2)
+
+```
+
+## Volatilidad, Riesgo e Incertidumbre
+
+* Volatilidad 
+    + ¿Qué es?
+    + ¿Para qué me sirve?
+    + ¿Cómo puedo usarla en la toma de decisiones?
+    
+* Riesgo
+  + Averso
+  + Medio
+  + Bajo
+  
+* Incertidumbre
+
+
+## Ejemplo
+
+
+```{r,  message=FALSE,echo=FALSE,warning=FALSE,results='hide'}
+rm(list=ls())
+library(quantmod)
+si=c("BA","F","MSFT","MCD")
+getSymbols(si,src="yahoo",from="2020-01-20",to="2021-06-20")
+```
+
+
+```{r,  message=FALSE,echo=FALSE,warning=FALSE}
+library(ggfortify)
+library( ggpmisc)
+library(plotly)
+library(plotly)
+library(dplyr)
+o=data.frame(date=index(BA), coredata(BA))
+mat <-  data.frame( Date=o$date,
+                   BA1 = round(BA$BA.Close,2),
+                   F1 = round(F$F.Close,2),M1=round(MSFT$MSFT.Close),MCD1=round(MCD$MCD.Close))
+
+p <- plot_ly(x = mat$Date, y = mat$BA.Close, type="scatter",name = "BA", mode="lines",
+    line = list(
+      color = 'red'
+    ))
+ a<- plot_ly(x = mat$Date,y = mat$F.Close, type="scatter",name = "F",mode="lines",
+    line = list(
+      color = 'blue'
+    ))
+ b<-  plot_ly(x = mat$Date,y = mat$MSFT.Close, type="scatter",name = "MSFT",mode="lines",
+    line = list(
+      color = 'green'
+    ))
+  
+ c<- plot_ly(x = mat$Date,y = mat$MCD.Close, type="scatter",name = "MCD",mode="lines",
+    line = list(
+      color = 'orange'
+    ))
+fig <- subplot(p,a,b,c, nrows=2)
+fig
+```
+
+
+## 
+
+```{r,  message=FALSE,echo=FALSE,warning=FALSE,results='hide'}
+rm(list=ls())
+library(quantmod)
+si=c("BA","F","MSFT","MCD")
+getSymbols(si,src="yahoo",from="2020-01-20",to="2021-06-20")
+```
+
+
+```{r,  message=FALSE,echo=FALSE,warning=FALSE}
+
+a=Delt(BA$BA.Close)[-1]
+b=Delt(F$F.Close)[-1]
+c=Delt(MSFT$MSFT.Close)[-1]
+d=Delt(MCD$MCD.Close)[-1]
+rend1=cbind(a,b,c,d)
+
+colnames(rend1)=si
+o=data.frame(date=index(a), coredata(a))
+
+rend <-  data.frame( Date=o$date,
+                   BA1 = round(rend1$BA,6),
+                   F1 = round(rend1$F,6),M1=round(rend1$MSFT,6),MCD1=round(rend1$MCD,6))
+
+p <- plot_ly(x = rend$Date, y = rend$BA, type="scatter",name = "BA", mode="lines",
+    line = list(
+      color = 'red'
+    ))
+ a<- plot_ly(x = rend$Date,y = rend$F, type="scatter",name = "F",mode="lines",
+    line = list(
+      color = 'blue'
+    ))
+ b<-  plot_ly(x =rend$Date,y = rend$MSFT, type="scatter",name = "MSFT",mode="lines",
+    line = list(
+      color = 'green'
+    ))
+  
+ c<- plot_ly(x = rend$Date,y = rend$MCD, type="scatter",name = "MCD",mode="lines",
+    line = list(
+      color = 'orange'
+    ))
+fig <- subplot(p,a,b,c, nrows=2)
+fig
+
+
+```
+
+## Midiendo el futuro.
+
+
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+## Proceso Continuo ojo no editar
+set.seed(123)
+caminatas <- function(s0, mu, sigma, 
+                        nsims, 
+                        periods   # tiempo en el que se hace la simulación
+) 
+{
+  
+  s0 = as.vector(s0)
+  nsteps = length(periods)
+  dt = c(periods[1], diff(periods))
+  
+  if( length(s0) == 1 ) {
+    drift = mu - 0.5 * sigma^2
+    if( nsteps == 1 ) {
+      s0 * exp(drift * dt + sigma * sqrt(dt) * rnorm(nsims))
+    } else {
+      temp = matrix(exp(drift * dt + sigma * sqrt(dt) * rnorm(nsteps * nsims)), nc=nsims)
+      for(i in 2:nsteps) temp[i,] = temp[i,] * temp[(i-1),]
+      s0 * temp
+    }
+  } else {
+    require(MASS)
+    drift = mu - 0.5 * diag(sigma)
+    n = length(mu)
+    
+    if( nsteps == 1 ) {
+      s0 * exp(drift * dt + sqrt(dt) * t(mvrnorm(nsims, rep(0, n), sigma)))
+    } else {
+      temp = array(exp(as.vector(drift %*% t(dt)) + t(sqrt(dt) * mvrnorm(nsteps * nsims, rep(0, n), sigma))), c(n, nsteps, nsims))
+      for(i in 2:nsteps) temp[,i,] = temp[,i,] * temp[,(i-1),]
+      s0 * temp
+    }
+  }
+}
+
+
+
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Con COVID
+a=Delt(BA$BA.Close)[-1]
+b=Delt(F$F.Close)[-1]
+c=Delt(MSFT$MSFT.Close)[-1]
+d=Delt(MCD$MCD.Close)[-1]
+
+mba=mean(a)*20
+mf=mean(b)*20
+mmsft=mean(c)*20
+mmcd=mean(d)*20
+
+sdba=sd(a)*sqrt(20)
+sdf=sd(b)*sqrt(20)
+sdmsft=sd(c)*sqrt(20)
+sdmcd=sd(d)*sqrt(20)
+sigma.mat=var(rend1)*20#Matriz de varianza y Covarianza
+
+mu.vec=cbind(mba,mf,mmsft,mmcd)
+S = c(as.numeric(tail(BA$BA.Close , n=1)),as.numeric(tail(MCD$MCD.Close , n=1)),as.numeric(tail(MSFT$MSFT.Close , n=1)),as.numeric(tail(MSFT$MSFT.Close , n=1)))
+mu = c(mba,mf,mmsft,mmcd)
+sigma = c(sdba,sdf,sdmsft,sdmcd)
+
+S = c(as.numeric(tail(BA$BA.Close , n=1)),as.numeric(tail(MCD$MCD.Close , n=1)),as.numeric(tail(MSFT$MSFT.Close , n=1)),as.numeric(tail(MSFT$MSFT.Close , n=1)))
+
+
+N = 1000
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+periods = 0:20
+BASM = as.data.frame(caminatas(S[1], mu[1]*(1/20), sigma[1]*sqrt(1/20) , N, periods = periods))
+FSM= as.data.frame(caminatas(S[2], mu[2]*(1/20), sigma[2]*sqrt(1/20) , N, periods = periods))
+MCDSM= as.data.frame(caminatas(S[3], mu[3]*(1/20), sigma[3]*sqrt(1/20), N, periods = periods))
+MSFTSM= as.data.frame(caminatas(S[4], mu[4]*(1/20), sigma[4]*sqrt(1/20), N, periods = periods))
+```
+
+
+
+
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyquant)
+library(tidyverse)
+library(timetk)
+library(broom)
+library(highcharter)
+colnames(MSFTSM)=c(paste("sim", 1:N, sep = ""))
+BASM1=MSFTSM
+BASM1$D=periods
+
+
+
+
+library(reshape2)
+basm <- melt(BASM1, id.vars="D")
+# Everything on the same plot
+a<-ggplot(basm, aes(D,value, col=variable)) + 
+  geom_line() +
+  theme(legend.position="none") +labs(title="MSFT",
+        x ="Tiempo", y = "Precios")
+ggplotly(a)
+
+
+```
+
+
+## 
+
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(dplyr)
+EVBA=rowMeans(MSFTSM)
+VOLBA=sqrt(rowMeans(MSFTSM^{2})-EVBA^{2})#V[x]=E[x^2]-(E[x])^2
+BAEV=as.data.frame(EVBA)
+BAEV=mutate(BAEV, VOLBAS =EVBA+VOLBA)
+BAEV=mutate(BAEV, VOLBAI =EVBA-VOLBA)
+TBA=t(BAEV)
+TBA[,1]=EVBA[1]
+BAEV=mutate(BAEV, VaR5 =EVBA-1.64*VOLBA)
+BAEV=mutate(BAEV, VaR1 =EVBA-2.33*VOLBA)
+BAEV$D=periods
+
+```
+
+
+```{r,  message=FALSE,echo=FALSE,warning=FALSE}
+
+library(dplyr)
+library(plotly)
+
+
+p<- plot_ly( x = BAEV$D, y = BAEV$EVBA, type="scatter",name = "EV",mode="lines")%>% 
+  add_trace(x = BAEV$D, y = BAEV$VOLBAS,name = "LS")%>%      add_trace(x = BAEV$D, y = BAEV$VOLBAI,name="LI",mode="lines") %>%
+  add_trace(x = BAEV$D, y = BAEV$VaR5,name="VaR 5%",mode="lines") %>%
+add_trace(x = BAEV$D, y = BAEV$VaR1,name="VaR 1%",mode="lines") %>%layout(title="MSFT")
+
+p
+
+
+```
+
+## 
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyquant)
+library(tidyverse)
+library(timetk)
+library(broom)
+library(highcharter)
+colnames(BASM)=c(paste("sim", 1:N, sep = ""))
+BASM1=BASM
+BASM1$D=periods
+FSM$D=periods
+MCDSM$D=periods
+MSFTSM$D=periods
+
+
+
+library(reshape2)
+basm <- melt(BASM1, id.vars="D")
+# Everything on the same plot
+a<-ggplot(basm, aes(D,value, col=variable)) + 
+  geom_line() +
+  theme(legend.position="none") +labs(title=si[1],
+        x ="Tiempo", y = "Precios")
+ggplotly(a)
+
+
+```
+
+
+## 
+
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(dplyr)
+EVBA=rowMeans(BASM)
+VOLBA=sqrt(rowMeans(BASM^{2})-EVBA^{2})#V[x]=E[x^2]-(E[x])^2
+BAEV=as.data.frame(EVBA)
+BAEV=mutate(BAEV, VOLBAS =EVBA+VOLBA)
+BAEV=mutate(BAEV, VOLBAI =EVBA-VOLBA)
+TBA=t(BAEV)
+TBA[,1]=EVBA[1]
+BAEV=mutate(BAEV, VaR5 =EVBA-1.64*VOLBA)
+BAEV=mutate(BAEV, VaR1 =EVBA-2.33*VOLBA)
+BAEV$D=periods
+
+```
+
+
+```{r,  message=FALSE,echo=FALSE,warning=FALSE}
+
+library(dplyr)
+library(plotly)
+
+
+p<- plot_ly( x = BAEV$D, y = BAEV$EVBA, type="scatter",name = "EV",mode="lines")%>% 
+  add_trace(x = BAEV$D, y = BAEV$VOLBAS,name = "LS")%>%      add_trace(x = BAEV$D, y = BAEV$VOLBAI,name="LI",mode="lines") %>%
+  add_trace(x = BAEV$D, y = BAEV$VaR5,name="VaR 5%",mode="lines") %>%
+add_trace(x = BAEV$D, y = BAEV$VaR1,name="VaR 1%",mode="lines") %>%layout(title="BA")
+
+p
+
+
+```
+
+
+
+
+## Los Portafolios
+
+
+
+```{r,  message=FALSE,echo=FALSE,warning=FALSE,results='hide'}
+
+library(quantmod)
+si=c("BA","F","MSFT","MCD")
+getSymbols(si,src="yahoo",from="2018-03-24",to="2019-10-1")
+# sin COVID
+a=Delt(BA$BA.Close)[-1]
+b=Delt(F$F.Close)[-1]
+c=Delt(MSFT$MSFT.Close)[-1]
+d=Delt(MCD$MCD.Close)[-1]
+rend1=cbind(a,b,c,d)
+
+colnames(rend1)=si
+
+mba=mean(a)*20
+mf=mean(b)*20
+mmsft=mean(c)*20
+mmcd=mean(d)*20
+
+sdba=sd(a)*sqrt(20)
+sdf=sd(b)*sqrt(20)
+sdmsft=sd(c)*sqrt(20)
+sdmcd=sd(d)*sqrt(20)
+sigma.mat=var(rend1)*20#Matriz de varianza y Covarianza
+
+mu.vec=cbind(mba,mf,mmsft,mmcd)
+colnames(mu.vec)=si
+n=4
+#Construcciín de la Matriz A
+top.mat=cbind(2*sigma.mat,rep(1,n))# Matriz varcovar  y un vector de unos
+bot.mat=c(rep(1,n),0)# Un vector de unos y un cero
+Am.mat = rbind(top.mat, bot.mat)# Juntamos top y bot para crear la matriz A
+b=c(rep(0,n),1)# Creamos el vector b
+z=solve(Am.mat)%*%b# Calculamos el vector z
+w.min=z[1:n]# Extraemos los pesos
+m.min=mu.vec%*%w.min# Ecuación 19 rentabilidad del portafolio
+sigma2.min=t(w.min)%*%sigma.mat%*%w.min# Ecuación 20 varianza del portafolio
+sigma.min=sqrt(sigma2.min)# volatilidad
+
+
+# Maximizar la rentabilidad con un rendimiento igual 0.04
+#Construcción de la Matriz A
+top=cbind(2*sigma.mat,t(mu.vec),rep(1,n))# Matriz varcovar, un vector de rendimientos  y un vector de unos
+mit=c(mu.vec,0,0)# Vector de rendimientos
+bot=c(rep(1,n),0,0)# Un vector de unos y dos ceros
+A = rbind(top,mit,bot)# Juntamos top, mit y bot para crear la matriz A
+b=c(rep(0,n),0.04,1)# Creamos el vector b con ceros, la rentabilidad objetivo y un uno
+z=solve(A)%*%b# Calculamos el vector z
+w.4=z[1:n]# Extraemos los pesos
+m.4=mu.vec%*%w.4# Rentabilidad 
+sigma2.4=t(w.4)%*%sigma.mat%*%w.4
+sigma.4=sqrt(sigma2.4)
+
+sigm.g4=t(w.min)%*%sigma.mat%*%w.4# Covarianza
+rhog4=sigm.g4/(sigma.4*sigma.min)# Correlación
+
+# Creación de la  frontera eficiente
+
+a=seq(from=-0.5, to=1.5, by=0.05)
+n.a=length(a)
+z.mat=matrix(0, n.a, n)
+colnames(z.mat) = si
+mu.z = rep(0, n.a)
+sig2.z = rep(0, n.a)
+sigm.g4=t(w.min)%*%sigma.mat%*%w.4# Covarianza
+
+for (i in 1:n.a) {
+  z.mat[i, ] = a[i]*w.min + (1-a[i])*w.4
+  mu.z[i] = a[i]*m.min + (1-a[i])*m.4# Ecuación número 9 de la rentabilidad 
+  sig2.z[i] = a[i]^2 * sigma2.min + (1-a[i])^2 * sigma2.4 + 2*a[i]*(1-a[i])*sigm.g4# Ecuación número 10 
+}
+
+sig.z=sqrt(sig2.z)
+x.t = seq(0, 2, by=0.1)
+rf = (1+(1.59)/100)^(1/12)-1
+sigma.inv.mat = solve(sigma.mat)
+one.vec = rep(1, n)
+mu.minus.rf = mu.vec - rf*one.vec
+top.mat = sigma.inv.mat%*%t(mu.minus.rf)
+bot.val = as.numeric(t(one.vec)%*%top.mat)
+t.vec = top.mat[,1]/bot.val
+
+
+# 
+mu.t =mu.vec%*% t.vec
+sig2.t = as.numeric(t(t.vec)%*%sigma.mat%*%t.vec)
+sig.t = sqrt(sig2.t)
+
+
+# sharpe ratio on tangency portfolio
+sr.t = (mu.t - rf)/sig.t
+
+
+
+#
+# Efficient portfolios of T-bills and tangency portfolio
+#
+
+mu.pe = rf + x.t*(mu.t - rf)
+sig.pe = x.t*sig.t 
+slope.t = (mu.t - rf)/sig.t
+sd.vec=c(sdba,sdf,sdmsft,sdmcd)
+acciones=si
+stocks=data.frame(round(t(mu.vec),6),round(sd.vec,6),acciones)
+colnames(stocks)=c("rend","vol","Acciones")
+sharpe=data.frame(mu.pe,sig.pe)
+
+
+covport=data.frame(cbind(mu.z,sig.z))
+```
+
+```{r,  message=FALSE,echo=FALSE,warning=FALSE}
+
+library(dplyr)
+library(plotly)
+final_df=merge(covport,stocks,all.x = TRUE,all.y = TRUE)
+final_df=merge(final_df,sharpe,all.x = TRUE,all.y = TRUE)
+
+p<- plot_ly( x = final_df$sig.z, y = final_df$mu.z, type="scatter",name = "Frontera Eficiente")%>% 
+  add_trace(x = final_df$vol, y = final_df$rend,name = final_df$Acciones)%>%      add_trace(x = final_df$sig.pe, y = final_df$mu.pe,name="Indice de Sharpe") %>% layout(title="Portafolio")
+
+p
+
+
+```
+
+
+
+
+
+
+
