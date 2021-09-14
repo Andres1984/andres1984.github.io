@@ -44,6 +44,8 @@ title: "Career"
 
 ### Papers
 
+*   Martínez Patiño, M. A., & Ariza Garzón, M. J., & Cadena Lozano, J. B. (2021). Relevancia del patrón de persistencia de Hurst en la gestión de portafolios de renta variable. Revista de Métodos Cuantitativos para la Economía y la Empresa, 32, 66-82.
+
 *   Martínez Patiño, M. A., & Ariza Garzón, M. J. (2016). Pronóstico de un título de renta fija en Colombia. Revista mexicana de economía y finanzas, 11(3), 141-159.
 
 
