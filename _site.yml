@@ -7,6 +7,8 @@ navbar:
       href: index.html
     - text: "Career"
       href: profile.html  
+    - text: "Semillero"
+      href: presentacion.html
   right: 
     - icon: fa-envelope fa-lg
       href: mailto:<andres.marfh@gmail.com>
