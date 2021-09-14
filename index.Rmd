@@ -3,7 +3,7 @@ title: "My Profile"
 ---
 
 <p align="justify/center">
-I have two bachelor’s degree in Finance and Economics from the Universidad Sergio Arboleda, and I also have a Msc in Stochastic Engineering from the University of Applied Sciences in Munich Germany. Currently I hold a position as professor of Statistics at the Mathematics Department of the Universidad Externado. During my academic career I have been professor for lectures like Risk Management, Financial Derivatives and Capital Markets. Right now, I pursue a Phd in Management and my research topic is about the measure of the volatility in different kind of assets using  probabilistic theory, Bayesian analysis and stochastic models to forecast time series to measure different kinds of risk process.
+I have two bachelor’s degree in Finance and Economics from the Universidad Sergio Arboleda, and I also have a Msc in Stochastic Engineering from the University of Applied Sciences in Munich Germany. Currently I hold a position as professor of Statistics at the Mathematics Department of the Universidad Externado. In my academic career I have been professor in lectures like Risk Management, Financial Derivatives and Capital Markets. Right now, I pursue a Phd in Management and my research topic is about the measure of the volatility in different kind of assets using  probabilistic theory, Bayesian analysis and stochastic models to forecast time series to measure different kinds of risk processes.
 </p>
 
 
