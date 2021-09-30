@@ -9,6 +9,10 @@ navbar:
       href: profile.html  
     - text: "Semillero"
       href: presentacion.html
+    - text: "Example1"
+      href: regresion.html
+    - text: "Example2"
+      href: Untitled.html
   right: 
     - icon: fa-envelope fa-lg
       href: mailto:<andres.marfh@gmail.com>
@@ -19,8 +23,8 @@ navbar:
     - icon: fa-linkedin fa-lg
       href: https://www.linkedin.com/in/manuel-andres-martinez-patino-560a4b84/
     - icon: fa-cube fa-lg
-      href: https://andres-martinez1984.shinyapps.io/portfoliogithub/
+      href: https://andres-martinez1984.shinyapps.io/dash/
 output:
   html_document:
-    theme: lumen
+    theme: cerulean
     highlight: tango
