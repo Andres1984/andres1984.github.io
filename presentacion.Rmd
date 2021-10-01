@@ -10,8 +10,6 @@ site: "bookdown::bookdown_site"
 
 
 
-output:
-  ioslides_presentation: default
 
 
   
