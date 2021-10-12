@@ -9,6 +9,9 @@ biglogo : externado.png
 site: "bookdown::bookdown_site"
 
 
+
+
+
   
 
 ---
@@ -72,14 +75,8 @@ library(cowplot)
 
 ### Louis Bachelier
 
+<img src="louis.png" style="width:50%">
 
-
-```{r,  message=FALSE,echo=FALSE,warning=FALSE}
-
-p1 <- ggdraw() + draw_image("/Users/andresmartinez/Documents/GitHub/andres1984.github.io/andres1984.github.io/louis.png", scale = 0.9)
-p1
-
-```
 
 
 
@@ -89,14 +86,10 @@ p1
 
 ### Jim Simons
 
-```{r,  message=FALSE,echo=FALSE,warning=FALSE}
+<img src="Jim_Simons_at_MSRI.jpg" style="width:50%">
 
 
-p2 <- ggdraw() + draw_image("/Users/andresmartinez/Documents/GitHub/andres1984.github.io/andres1984.github.io/Jim_Simons_at_MSRI.jpg", scale = 0.7)
 
-p2
-
-```
 
 ## Volatilidad, Riesgo e Incertidumbre
 
