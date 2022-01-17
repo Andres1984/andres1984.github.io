@@ -9,10 +9,6 @@ navbar:
       href: profile.html  
     - text: "Semillero"
       href: presentacion.html
-    - text: "Example1"
-      href: regresion.html
-    - text: "Example2"
-      href: Untitled.html
   right: 
     - icon: fa-envelope fa-lg
       href: mailto:<andres.marfh@gmail.com>

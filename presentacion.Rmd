@@ -1,18 +1,12 @@
 ---
 title: "Semillero de Analítica de Negocios"
 author: "Departamento de Matemáticas"
-date: "15 de Septiembre de 2021"
+date: "18 de Enero de 2022"
 css: styles.css
 link-citations: yes
 logo: externado.png
 biglogo : externado.png
-site: "bookdown::bookdown_site"
 
-
-
-
-
-  
 
 ---
 
@@ -59,9 +53,21 @@ library(cowplot)
 ## Introducción
 
 
-* Desarrollar competencias implementando conceptos teóricos en escenarios reales
+* ¿Qué es un científico de datos?
+
+1.  La ciencia de datos es un desarrollo colectivo, que ensambla situaciones sociales a arquitecturas computacionales  para comprender las interacciones del mundo real (Lowrie, 2017).
+
+2. Un científico de datos se considera como un profesional competente que aborda de forma interdisciplinar el proceso de análisis.
+
+- Diseño de la arquitectura tecnológica.
+- Visualización y análisis de los resultados.
+
+
+## Introducción
+
+* Desarrollar competencias implementando conceptos teóricos en escenarios reales.
 * Construcción de modelos orientados a la comprensión de cada etapa del proceso de toma de decisiones. 
-* Evaluar el rendimiento de una estrategia
+* Evaluar el rendimiento de una estrategia.
 * Entender el impacto de cada uno de los posibles escenarios.
 
 
@@ -86,7 +92,7 @@ library(cowplot)
 
 ### Jim Simons
 
-<img src="Jim_Simons_at_MSRI.jpg" style="width:50%">
+<img src="jimm.jpeg" style="width:50%">
 
 
 
