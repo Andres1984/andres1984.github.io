@@ -9,6 +9,10 @@ navbar:
       href: profile.html  
     - text: "Semillero"
       href: presentacion.html
+    - text: "Introduccion"
+      href: induccion.html
+    - text: "FIFA"
+      href: worldcup1.html  
   right: 
     - icon: fa-envelope fa-lg
       href: mailto:<andres.marfh@gmail.com>
