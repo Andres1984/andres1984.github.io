@@ -7,8 +7,8 @@ navbar:
       href: index.html
     - text: "Career"
       href: profile.html  
-    - text: "Semillero"
-      href: presentacion.html
+    - text: "Presentacion"
+      href: presentacion1.html
     - text: "Introduccion"
       href: induccion.html
     - text: "FIFA"
