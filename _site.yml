@@ -5,9 +5,9 @@ navbar:
   left:
     - text: "Home"
       href: index.html
-    - text: "Career"
+    - text: "CV"
       href: profile.html  
-    - text: "Presentacion"
+    - text: "Teaching"
       href: presentacion1.html
     - text: "Introduccion"
       href: induccion.html
