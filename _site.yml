@@ -8,7 +8,7 @@ navbar:
     - text: "CV"
       href: profile.html  
     - text: "Teaching"
-      href: presentacion1.html
+      href: teaching.html
     - text: "Introduccion"
       href: induccion.html
     - text: "FIFA"
