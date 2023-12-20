@@ -20,7 +20,5 @@ navbar:
       href: https://www.linkedin.com/in/manuel-andres-martinez-patino-560a4b84/
     - icon: fa-cube fa-lg
       href: https://andres-martinez1984.shinyapps.io/dash/
-output:
-  html_document:
-    theme: cerulean
-    highlight: tango
+output: 
+  rmdformats::readthedown
