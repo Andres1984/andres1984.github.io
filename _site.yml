@@ -8,11 +8,7 @@ navbar:
     - text: "CV"
       href: profile.html  
     - text: "Teaching"
-      href: presentacion1.html
-    - text: "Introduccion"
-      href: induccion.html
-    - text: "FIFA"
-      href: worldcup1.html  
+      href: teaching.html
   right: 
     - icon: fa-envelope fa-lg
       href: mailto:<andres.marfh@gmail.com>
