@@ -1,0 +1,25 @@
+.gdbar img {
+  width: 300px !important;
+  height: 150px !important;
+  margin: 40px 40px;
+}
+
+.gdbar {
+  width: 400px !important;
+  height: 200px !important;
+}
+
+slides > slide:not(.nobackground):before {
+  width: 300px;
+  height: 150px;
+  background-size: 150px 75px;
+}
+
+
+.reveal section p {
+  color: green;
+}
+
+#header1 {
+color: red;
+}
