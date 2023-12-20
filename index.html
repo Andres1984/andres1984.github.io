@@ -11,9 +11,9 @@
 
 
 
-<title>My Profile</title>
+<title>index.knit</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.22/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
@@ -30,8 +30,8 @@
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -41,6 +41,7 @@
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   ul.task-list{list-style: none;}
     </style>
+
 
 
 
@@ -70,6 +71,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -127,11 +131,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -160,8 +168,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -169,16 +177,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -222,7 +223,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -235,16 +236,10 @@ $(document).ready(function () {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="profile.html">Career</a>
+  <a href="profile.html">CV</a>
 </li>
 <li>
-  <a href="presentacion1.html">Presentacion</a>
-</li>
-<li>
-  <a href="induccion.html">Introduccion</a>
-</li>
-<li>
-  <a href="worldcup1.html">FIFA</a>
+  <a href="teaching.html">Teaching</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -287,28 +282,44 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">My Profile</h1>
 
 </div>
 
 
+<div id="my-profile" class="section level3">
+<h3>my profile</h3>
+</div>
+<div id="my-profile-1" class="section level1">
+<h1>My Profile</h1>
 <p align="justify/center">
-I have two bachelor’s degree in Finance and Economics from the Universidad Sergio Arboleda, and I also have a Msc in Stochastic Engineering from the University of Applied Sciences in Munich Germany. Currently I hold a position as professor of Statistics at the Mathematics Department of the Universidad Externado. In my academic career I have been professor in lectures like Risk Management, Financial Derivatives and Capital Markets. Right now, I pursue a Phd in Management and my research topic is about the measure of the volatility in different kind of assets using probabilistic theory, Bayesian analysis and stochastic models to forecast time series to measure risk processes.
+I received a bachelor’s degree in Finance and Economics at the Sergio
+Arboleda University, and I am MSc in Stochastic Engineering from the
+University of Applied Sciences in Munich Germany. Currently I hold the
+position of fulltime professor of Data Science at the Mathematics
+Department of the Externado University. I have been teaching lectures in
+Stochastic Calculus, Data Science, Risk Management and Financial
+Derivatives. I pursue a Phd in Management and my research is about
+pricing techniques using stochastic models to forecast the price and
+measure the risk of smart contracts.
 </p>
 <div id="about-me" class="section level2">
 <h2>About Me</h2>
-<p>Bayern Fan “Bayern ist Leidenschaft rot weiss ist Fussballmacht denn Mia Sam Mia” Scorefor</p>
-<div id="university-afiliation" class="section level3">
-<h3>University afiliation</h3>
+<p>Bayern Fan “Bayern ist Leidenschaft rot weiss ist Fussballmacht denn
+Mia Sam Mia” Scorefor</p>
+<div id="university-affiliation" class="section level3">
+<h3>University affiliation</h3>
 <p>Universidad Externado de Colombia</p>
-<p>Departamento de Matemáticas</p>
-<p><a href="mailto:manuel.martinez@uexternado.edu.co" class="email">manuel.martinez@uexternado.edu.co</a></p>
+<p>Mathematics Department</p>
+<p><a href="mailto:manuel.martinez@uexternado.edu.co"
+class="email">manuel.martinez@uexternado.edu.co</a></p>
 </div>
 <div id="current-studies" class="section level3">
 <h3>Current Studies</h3>
 <p>Phd in Management</p>
 <p>Universidad de los Andes</p>
-<p><a href="mailto:ma.martinezp12@uniandes.edu.co" class="email">ma.martinezp12@uniandes.edu.co</a></p>
+<p><a href="mailto:ma.martinezp12@uniandes.edu.co"
+class="email">ma.martinezp12@uniandes.edu.co</a></p>
+</div>
 </div>
 </div>
 
