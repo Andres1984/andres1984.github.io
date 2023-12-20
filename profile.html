@@ -11,10 +11,10 @@
 
 
 
-<title>Career</title>
+<title>profile.knit</title>
 
-<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.22/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -30,8 +30,8 @@
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -41,6 +41,7 @@
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   ul.task-list{list-style: none;}
     </style>
+
 
 
 
@@ -70,6 +71,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -127,11 +131,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -160,8 +168,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -169,16 +177,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -222,7 +223,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -235,16 +236,10 @@ $(document).ready(function () {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="profile.html">Career</a>
+  <a href="profile.html">CV</a>
 </li>
 <li>
-  <a href="presentacion.html">Semillero</a>
-</li>
-<li>
-  <a href="regresion.html">Example1</a>
-</li>
-<li>
-  <a href="Untitled.html">Example2</a>
+  <a href="teaching.html">Teaching</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -287,18 +282,23 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Career</h1>
 
 </div>
 
 
+<div id="cv" class="section level3">
+<h3>cv</h3>
+</div>
+<div id="curriculum-vitae" class="section level1">
+<h1>Curriculum Vitae</h1>
 <div id="education" class="section level3">
 <h3>Education</h3>
 <ul>
 <li>M.Sc. Stochastic Engineering
 <ul>
 <li>University of Applied Sciences, Munich</li>
-<li>Thesis: Fractal Brownian Motions an application in fix rate models</li>
+<li>Thesis: Fractal Brownian Motions an application in fix rate
+models</li>
 </ul></li>
 <li>B. Arts. Economist
 <ul>
@@ -327,20 +327,31 @@ $(document).ready(function () {
 <div id="conferences" class="section level3">
 <h3>Conferences</h3>
 <ul>
-<li><p>2020 Speaker V Congreso Internacional de Investigación en Competitividad y Desarrollo Sostenible de la Red Radar</p></li>
+<li><p>2020 Speaker V Congreso Internacional de Investigación en
+Competitividad y Desarrollo Sostenible de la Red Radar</p></li>
 <li><p>2017 Attended the ARPM seminary at New York University</p></li>
-<li><p>2018 Speaker at VI Congreso de Investigación Financiera Monterey México</p></li>
-<li><p>2016 Speaker at VI Congreso de Investigación Financiera Guadalajara México</p></li>
-<li><p>2016 Speaker at Congreso Internacional de Riesgo Financiero Medellín Colombia.</p></li>
-<li><p>2015 Speaker at V Congreso de Investigación Financiera México D.F México</p></li>
+<li><p>2018 Speaker at VI Congreso de Investigación Financiera Monterey
+México</p></li>
+<li><p>2016 Speaker at VI Congreso de Investigación Financiera
+Guadalajara México</p></li>
+<li><p>2016 Speaker at Congreso Internacional de Riesgo Financiero
+Medellín Colombia.</p></li>
+<li><p>2015 Speaker at V Congreso de Investigación Financiera México D.F
+México</p></li>
 </ul>
 </div>
 <div id="papers" class="section level3">
 <h3>Papers</h3>
 <ul>
-<li><p>Martínez Patiño, M. A., &amp; Ariza Garzón, M. J., &amp; Cadena Lozano, J. B. (2021). Relevancia del patrón de persistencia de Hurst en la gestión de portafolios de renta variable. Revista de Métodos Cuantitativos para la Economía y la Empresa, 32, 66-82.</p></li>
-<li><p>Martínez Patiño, M. A., &amp; Ariza Garzón, M. J. (2016). Pronóstico de un título de renta fija en Colombia. Revista mexicana de economía y finanzas, 11(3), 141-159.</p></li>
+<li><p>Martínez Patiño, M. A., &amp; Ariza Garzón, M. J., &amp; Cadena
+Lozano, J. B. (2021). Relevancia del patrón de persistencia de Hurst en
+la gestión de portafolios de renta variable. Revista de Métodos
+Cuantitativos para la Economía y la Empresa, 32, 66-82.</p></li>
+<li><p>Martínez Patiño, M. A., &amp; Ariza Garzón, M. J. (2016).
+Pronóstico de un título de renta fija en Colombia. Revista mexicana de
+economía y finanzas, 11(3), 141-159.</p></li>
 </ul>
+</div>
 </div>
 
 
