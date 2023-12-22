@@ -21,4 +21,5 @@ navbar:
     - icon: fa-cube fa-lg
       href: https://andres-martinez1984.shinyapps.io/dash/
 output: 
-  rmdformats::readthedown
+  rmdformats::readthedown:
+    css: styles.css  # Ensure this path is correct
