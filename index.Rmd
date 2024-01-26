@@ -1,10 +1,15 @@
----
-title: "My Profile"
----
+### my profile
 
-<p align="justify/center">
+# My Profile
 
-I have two bachelor’s degree in Finance and Economics from the Universidad Sergio Arboleda, and I also have a Msc in Stochastic Engineering from the University of Applied Sciences in Munich Germany. Currently I hold a position as professor of Statistics at the Mathematics Department of the Universidad Externado. In my academic career I have been professor in lectures like Risk Management, Financial Derivatives and Capital Markets. Right now, I pursue a Phd in Management and my research topic is about the measure of the volatility in different kind of assets using  probabilistic theory, Bayesian analysis and stochastic models to forecast time series to measure risk processes.
+
+
+<p style="text-align: justify;">
+
+Finance and Economics professional with a Master's in Stochastic Engineering from the Munich University of Applied Sciences, Germany. Currently holds the position of full-time research professor in the Mathematics Department at Universidad Externado. He is responsible for undergraduate courses in Data Science, including Introduction to Data Science, Bayesian Statistics, and specializations in Finance with a focus on Stochastic Calculus, Risk Management, Blockchain, and Financial Derivatives. He is also the principal professor for Data Science modules for the master's programs in Business Administration (MBA) and Smart Cities at the same institution, as well as for the graduate programs of the Department of Telecommunications Law. He leads the Data Science Research Group and has been involved in consulting projects with the university, focusing on the implementation of visualization processes for pattern identification in the financial sector.
+
+He is currently a doctoral candidate in Business Administration at Universidad de los Andes, with research in pricing techniques, using Bayesian estimation in stochastic and data science models focused on price prediction and risk measurement in smart contracts.
+
 </p>
 
 
@@ -13,11 +18,14 @@ I have two bachelor’s degree in Finance and Economics from the Universidad Ser
 
 Bayern Fan "Bayern ist Leidenschaft rot weiss ist Fussballmacht denn Mia Sam Mia" Scorefor 
 
-### University afiliation
+
+
+
+### University affiliation
 
 Universidad Externado de Colombia
 
-Departamento de Matemáticas
+Mathematics Department
 
 manuel.martinez@uexternado.edu.co
 

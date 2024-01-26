@@ -1,4 +1,6 @@
-name: "my-website"
+title: "My Website"
+author: "Andrés Martínez"
+description: "Personal website of Andrés Martínez - CV, Teaching, and Projects"
 output_dir: "."
 navbar:
   title: "Andrés Martínez"
@@ -9,17 +11,21 @@ navbar:
       href: profile.html  
     - text: "Teaching"
       href: teaching.html
-  right: 
+  right:
     - icon: fa-envelope fa-lg
-      href: mailto:<andres.marfh@gmail.com>
+      href: mailto:andres.marfh@gmail.com
     - icon: fa-github fa-lg
       href: http://github.com/Andres1984/
-    - icon: fa-envelope fa-lg
+    - icon: fa-user fa-lg  # Assuming you wanted a different icon here
       href: https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001611846
     - icon: fa-linkedin fa-lg
       href: https://www.linkedin.com/in/manuel-andres-martinez-patino-560a4b84/
     - icon: fa-cube fa-lg
       href: https://andres-martinez1984.shinyapps.io/dash/
-output: 
+output:
   rmdformats::readthedown:
     css: styles.css  # Ensure this path is correct
+    highlight: zenburn
+    toc_depth: 3
+    gallery: false
+

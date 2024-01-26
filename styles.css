@@ -1,52 +1,50 @@
-/* General Body Styles */
+/* styles.css */
+
 body {
-    font-family: Arial, sans-serif;
-    background-color:#333333; /* Light grey background */
-    color: #333333; /* Dark grey text */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #4a4e69; /* Deep blue-gray for text */
+    background-color: #f0f4f8; /* Soft, cool gray background */
 }
 
-/* Navbar Styles */
+h1, h2, h3, h4, h5, h6 {
+    color: #2b2d42; /* Dark slate for headings */
+}
+
+a {
+    color: #008080; /* Teal for links */
+}
+
+a:hover {
+    color: #005f5f; /* Darker teal on hover */
+}
+
 .navbar {
-    background-color: #007bff; /* Primary blue for navbar */
-    color: #ffffff; /* White text */
+    background-color: #2b2d42; /* Dark slate for the navbar */
+    color: #edf2f4; /* Off-white for text */
+    padding: 10px 0;
 }
+
 .navbar a {
-    color: #ffffff; /* White text for links */
-    text-decoration: none;
+    color: #edf2f4;
 }
+
 .navbar a:hover {
-    text-decoration: underline; /* Underline on hover */
+    color: #8d99ae; /* Soft gray for hover */
 }
 
-/* Navbar Right Section for Icons */
-.navbar .right {
-    text-align: right;
-}
-.navbar .right a {
-    margin-left: 10px; /* Spacing between icons */
-}
-
-/* Content Area */
 .content {
-    background-color: #ffffff; /* White background for content */
-    padding: 20px; /* Padding around content */
+    padding: 20px;
+    margin: 20px;
+    background-color: #ffffff; /* Crisp white for content */
+    border-radius: 5px; /* Slight rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Delicate shadow */
 }
 
-h1, h2, h3 {
-    color: #0056b3; /* Secondary blue for headings */
-}
-
-/* Footer Styles */
 .footer {
-    background-color: #0056b3; /* Darker blue for footer */
-    color: #ffffff; /* White text for footer */
-    padding: 10px;
     text-align: center;
+    padding: 20px;
+    background-color: #2b2d42; /* Matching the navbar color */
+    color: #edf2f4;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .navbar, .footer {
-        text-align: center; /* Center align on smaller screens */
-    }
-}
