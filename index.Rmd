@@ -1,41 +1,43 @@
-### my profile
+---
+title: "My Profile"
+---
 
-# My Profile
+<table>
+  <tr>
+    <td>
+      <!-- Replace 'fotobn.jpg' with your actual image's URL if it's hosted online, or ensure this file is accessible in your project directory -->
+      <img src="fotobn.jpg" alt="Profile Image" style="width:3000px;"/>
+    </td>
+    <td style="padding-left: 20px;">
+      <p style="text-align: justify;">
+        Finance and Economics professional with a Master's in Stochastic Engineering from the Munich University of Applied Sciences, Germany. Currently holds the position of full-time research professor in the Mathematics Department at Universidad Externado. He is responsible for undergraduate courses in Data Science, including Introduction to Data Science, Bayesian Statistics, and specializations in Finance with a focus on Stochastic Calculus, Risk Management, Blockchain, and Financial Derivatives. He is also the principal professor for Data Science modules for the master's programs in Business Administration (MBA) and Smart Cities at the same institution, as well as for the graduate programs of the Department of Telecommunications Law. He leads the Data Science Research Group and has been involved in consulting projects with the university, focusing on the implementation of visualization processes for pattern identification in the financial sector.
+        <br><br>
+        He is currently a doctoral candidate in Business Administration at Universidad de los Andes, with research in pricing techniques, using Bayesian estimation in stochastic and data science models focused on price prediction and risk measurement in smart contracts.
+      </p>
+    </td>
+  </tr>
+</table>
 
-
-
-<p style="text-align: justify;">
-
-Finance and Economics professional with a Master's in Stochastic Engineering from the Munich University of Applied Sciences, Germany. Currently holds the position of full-time research professor in the Mathematics Department at Universidad Externado. He is responsible for undergraduate courses in Data Science, including Introduction to Data Science, Bayesian Statistics, and specializations in Finance with a focus on Stochastic Calculus, Risk Management, Blockchain, and Financial Derivatives. He is also the principal professor for Data Science modules for the master's programs in Business Administration (MBA) and Smart Cities at the same institution, as well as for the graduate programs of the Department of Telecommunications Law. He leads the Data Science Research Group and has been involved in consulting projects with the university, focusing on the implementation of visualization processes for pattern identification in the financial sector.
-
-He is currently a doctoral candidate in Business Administration at Universidad de los Andes, with research in pricing techniques, using Bayesian estimation in stochastic and data science models focused on price prediction and risk measurement in smart contracts.
-
-</p>
-
-
-
-## About Me
+### My team
 
 Bayern Fan "Bayern ist Leidenschaft rot weiss ist Fussballmacht denn Mia Sam Mia" Scorefor 
 
-
-
-
-### University affiliation
+### University Affiliation
 
 Universidad Externado de Colombia
 
-Mathematics Department
+Departamento de Matemáticas
 
 manuel.martinez@uexternado.edu.co
 
 ### Current Studies
 
-Phd in Management
+PhD in Management
 
 Universidad de los Andes
 
 ma.martinezp12@uniandes.edu.co
+
 
 
 
