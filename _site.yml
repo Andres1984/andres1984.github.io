@@ -19,7 +19,7 @@ navbar:
     - icon: fa-linkedin fa-lg
       href: https://www.linkedin.com/in/manuel-andres-martinez-patino-560a4b84/
     - icon: fa-cube fa-lg
-<<<<<<< HEAD
+
       href: https://andres-martinez1984.shinyapps.io/dash/
 rmdformats::readthedown:
     css: styles.css  # Ensure this path is correct
@@ -27,10 +27,5 @@ rmdformats::readthedown:
     toc_depth: 3
     gallery: false
 
-=======
-      href: https://andres-martinez1984.shinyapps.io/portfoliogithub/
-output:
-  html_document:
-    theme: lumen
-    highlight: tango
->>>>>>> 2e865b7 (html)
+
+
