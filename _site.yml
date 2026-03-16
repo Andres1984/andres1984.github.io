@@ -14,18 +14,16 @@ navbar:
       href: mailto:<andres.marfh@gmail.com>
     - icon: fa-github fa-lg
       href: http://github.com/Andres1984/
-    - icon: fa-envelope fa-lg
+    - icon: fa-address-book fa-lg
       href: https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001611846
     - icon: fa-linkedin fa-lg
-      href: https://www.linkedin.com/in/manuel-andres-martinez-patino-560a4b84/
+      href: https://www.linkedin.com/in/andrés-martínez-patiño-ph-d-560a4b84/
     - icon: fa-cube fa-lg
-
       href: https://andres-martinez1984.shinyapps.io/dash/
-rmdformats::readthedown:
-    css: styles.css  # Ensure this path is correct
+output:
+  html_document:
+    theme: flatly
+    css: styles.css
     highlight: zenburn
     toc_depth: 3
-    gallery: false
-
-
-
+    toc_float: true
