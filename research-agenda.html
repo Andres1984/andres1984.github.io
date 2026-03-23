@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Research Agenda | Andrés Martínez, Ph.D.</title>
+    <meta name="description"
+        content="Research agenda of Andrés Martínez, Ph.D. Asset valuation, behavioral finance, Bayesian statistics, and data science." />
+    <style>
+        :root {
+            --navy: #14324a;
+            --navy-2: #1f4766;
+            --gold: #b88a44;
+            --gold-soft: #d7b27a;
+            --ink: #1c2430;
+            --muted: #5b6775;
+            --bg: #f5f7fa;
+            --card: #ffffff;
+            --line: #dbe3ea;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(20, 50, 74, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Inter", "Segoe UI", Arial, sans-serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.72;
+        }
+
+        a {
+            color: var(--navy-2);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--gold);
+        }
+
+        .container {
+            width: min(1100px, calc(100% - 48px));
+            margin: 0 auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(20, 50, 74, 0.08);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            gap: 24px;
+        }
+
+        .brand {
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: 0.2px;
+            font-size: 1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            font-size: 0.96rem;
+        }
+
+        .hero {
+            background: linear-gradient(120deg, rgba(20, 50, 74, 0.97), rgba(31, 71, 102, 0.92));
+            color: var(--white);
+            padding: 72px 0 60px;
+        }
+
+        .hero h1 {
+            margin: 0 0 14px;
+            font-size: clamp(2.3rem, 5vw, 4rem);
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            margin: 0 0 16px;
+            font-size: 1.05rem;
+            color: #eef4f9;
+            max-width: 860px;
+        }
+
+        .hero .question {
+            font-size: 1.15rem;
+            color: #ffffff;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 24px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--white);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+        }
+
+        .btn-primary:hover {
+            background: #a97934;
+            color: var(--white);
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(255, 255, 255, 0.24);
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        main {
+            padding: 40px 0 80px;
+        }
+
+        section {
+            margin-bottom: 28px;
+            scroll-margin-top: 90px;
+        }
+
+        .section-card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .section-title {
+            margin: 0 0 12px;
+            color: var(--navy);
+            font-size: 1.7rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-card p {
+            margin: 0 0 16px;
+            color: #334152;
+        }
+
+        .story-step {
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            gap: 24px;
+            align-items: start;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .story-step:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .step-number {
+            width: 76px;
+            height: 76px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(20, 50, 74, 1), rgba(184, 138, 68, 0.9));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 12px 24px rgba(20, 50, 74, 0.15);
+        }
+
+        .step-content h3 {
+            margin: 0 0 10px;
+            color: var(--navy);
+            font-size: 1.2rem;
+        }
+
+        .animation-box {
+            margin-top: 14px;
+            padding: 18px;
+            border-radius: 18px;
+            border: 1px dashed rgba(20, 50, 74, 0.22);
+            background: linear-gradient(180deg, #fbfcfe, #f8fafc);
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .info-card {
+            background: linear-gradient(180deg, #ffffff, #fbfcfe);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 20px;
+        }
+
+        .info-card h3 {
+            margin: 0 0 10px;
+            color: var(--navy);
+            font-size: 1.08rem;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(184, 138, 68, 0.12);
+            color: var(--navy);
+            border: 1px solid rgba(184, 138, 68, 0.24);
+            font-size: 0.92rem;
+            font-weight: 600;
+        }
+
+        footer {
+            padding: 26px 0 48px;
+            color: var(--muted);
+            font-size: 0.94rem;
+            text-align: center;
+        }
+
+        @media (max-width: 840px) {
+
+            .story-step,
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .step-number {
+                width: 62px;
+                height: 62px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .container {
+                width: min(100% - 28px, 1100px);
+            }
+
+            .section-card {
+                padding: 22px;
+                border-radius: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand">Andrés Martínez, Ph.D.</div>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#story">Story</a>
+                <a href="#methods">Methods</a>
+                <a href="#visual">Visual Agenda</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Research Agenda</h1>
+            <p class="question">
+                How are asset prices formed when information is incomplete, noisy, and shaped by investor behavior?
+            </p>
+            <p>
+                My research agenda develops this question through a narrative that connects asset valuation,
+                behavioral finance, Bayesian statistics, and data science. Rather than studying prices as purely
+                mechanical outcomes, I examine how they emerge from the interaction between information, expectations,
+                market structure, and uncertainty.
+            </p>
+            <p>
+                This page is designed as a visual and conceptual story. Each section can be connected to animations
+                that show how signals enter the market, how investors react, how submarkets emerge, and how prices
+                are formed through the interaction between signal, bias, volatility, and noise.
+            </p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="index.html">Back to Home</a>
+                <a class="btn btn-secondary" href="#story">Read the Story</a>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <div class="container">
+
+            <section id="story">
+                <div class="section-card">
+                    <h2 class="section-title">The Story of Price Formation</h2>
+
+                    <div class="story-step">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <h3>Markets begin with information</h3>
+                            <p>
+                                Financial markets do not begin with prices. They begin with signals. In traditional
+                                settings,
+                                institutions such as central banks, regulators, and financial intermediaries provide
+                                structured
+                                information that helps investors interpret the economy and form expectations about the
+                                value of assets.
+                            </p>
+                            <p>
+                                My research starts from this idea: price formation depends on how information is
+                                organized,
+                                interpreted, and transmitted across the market.
+                            </p>
+                            <div class="animation-box">
+                                <strong>Animation placeholder:</strong> floating points or signals entering the market,
+                                initially dispersed, then forming structured paths or anchors.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="story-step">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <h3>Investors do not react in the same way</h3>
+                            <p>
+                                Once information enters the market, investors process it through expectations, beliefs,
+                                strategic behavior, and emotional responses. This is where behavioral finance becomes
+                                central.
+                                Herding, information cascades, and speculative reactions can amplify trends and reshape
+                                market dynamics.
+                            </p>
+                            <p>
+                                Instead of assuming homogeneous agents, I study how heterogeneous reactions help create
+                                submarkets,
+                                local biases, and collective movements.
+                            </p>
+                            <div class="animation-box">
+                                <strong>Animation placeholder:</strong> clusters forming from investor interactions,
+                                with some points
+                                changing color as agents imitate or respond to the same signal.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="story-step">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <h3>Prices emerge from signal, structure, and noise</h3>
+                            <p>
+                                Prices are not only reflections of fundamentals. They are also shaped by uncertainty,
+                                volatility,
+                                and the way investors coordinate their actions. In this sense, noise is not simply a
+                                disturbance;
+                                it is part of the market process itself.
+                            </p>
+                            <p>
+                                A key objective of my work is to understand how market prices emerge from the
+                                interaction between
+                                meaningful signals, behavioral biases, and stochastic fluctuations.
+                            </p>
+                            <div class="animation-box">
+                                <strong>Animation placeholder:</strong> red core for structural signal, orange ring for
+                                market price,
+                                gray or blue points for residual noise, and local submarket dynamics.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="story-step">
+                        <div class="step-number">04</div>
+                        <div class="step-content">
+                            <h3>Uncertainty requires probabilistic models</h3>
+                            <p>
+                                Because markets are uncertain, the modeling framework must represent uncertainty
+                                explicitly.
+                                This is why Bayesian statistics plays a central role in my research. Bayesian methods
+                                allow the
+                                integration of prior knowledge, observed data, and latent market structures in a
+                                coherent way.
+                            </p>
+                            <p>
+                                Through hierarchical models, stochastic volatility frameworks, and Bayesian learning, I
+                                study
+                                how risk, heterogeneity, and information interact across assets and over time.
+                            </p>
+                            <div class="animation-box">
+                                <strong>Animation placeholder:</strong> dynamic updating of distributions, latent layers
+                                becoming
+                                visible, or points reorganizing as information is learned.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="story-step">
+                        <div class="step-number">05</div>
+                        <div class="step-content">
+                            <h3>Data science helps reveal hidden structure</h3>
+                            <p>
+                                Data science complements financial theory by providing tools to detect nonlinear
+                                patterns,
+                                classify structures, and build predictive systems. In my research, machine learning is
+                                not used
+                                as a substitute for economic reasoning, but as a bridge between theory, evidence, and
+                                decision-making.
+                            </p>
+                            <p>
+                                This allows me to connect pricing models with visual narratives that explain how markets
+                                learn,
+                                differentiate signal from noise, and generate observable price paths.
+                            </p>
+                            <div class="animation-box">
+                                <strong>Animation placeholder:</strong> all points begin in one color, then the
+                                algorithm gradually
+                                separates structure, signal, and residual noise.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="methods">
+                <div class="section-card">
+                    <h2 class="section-title">Methods and Foundations</h2>
+                    <div class="grid-2">
+                        <div class="info-card">
+                            <h3>Research Foundations</h3>
+                            <p>
+                                My work is grounded in asset valuation, behavioral finance, stochastic modeling, and
+                                Bayesian inference.
+                                Across these areas, I aim to build models that remain economically meaningful while
+                                being statistically rigorous.
+                            </p>
+                        </div>
+                        <div class="info-card">
+                            <h3>Methodological Toolkit</h3>
+                            <p>
+                                Bayesian hierarchical models, stochastic volatility, risk-factor models, market
+                                microstructure,
+                                machine learning, data visualization, and computational methods for uncertainty
+                                quantification.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="visual">
+                <div class="section-card">
+                    <h2 class="section-title">Visual Agenda</h2>
+                    <p>
+                        This research page is designed to connect directly with animated explanations. Each animation
+                        can function
+                        as a visual chapter of the agenda:
+                    </p>
+
+                    <div class="grid-2">
+                        <div class="info-card">
+                            <h3>Animation 1 — Information enters the market</h3>
+                            <p>Signals appear, move, and organize the first structure of price discovery.</p>
+                        </div>
+
+                        <div class="info-card">
+                            <h3>Animation 2 — Investors form submarkets</h3>
+                            <p>Clusters emerge as investors react differently to the same information.</p>
+                        </div>
+
+                        <div class="info-card">
+                            <h3>Animation 3 — Price emerges from signal and noise</h3>
+                            <p>Market price appears as a layer shaped by structure, expectations, and uncertainty.</p>
+                        </div>
+
+                        <div class="info-card">
+                            <h3>Animation 4 — Learning under uncertainty</h3>
+                            <p>Bayesian and machine learning tools identify hidden patterns and residual noise.</p>
+                        </div>
+                    </div>
+
+                    <div class="animation-box" style="margin-top:18px;">
+                        <strong>How to connect your current animations:</strong>
+                        use your existing blue, gray, red, and orange visual language to represent information, noise,
+                        structural signal, and market price. This page already gives you the narrative sequence to place
+                        them.
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="section-card">
+                    <h2 class="section-title">Keywords</h2>
+                    <div class="tag-list">
+                        <span class="tag">Asset Valuation</span>
+                        <span class="tag">Behavioral Finance</span>
+                        <span class="tag">Bayesian Statistics</span>
+                        <span class="tag">Data Science</span>
+                        <span class="tag">Stochastic Volatility</span>
+                        <span class="tag">Herding</span>
+                        <span class="tag">Price Formation</span>
+                        <span class="tag">Noise and Uncertainty</span>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            © 2026 Andrés Martínez, Ph.D. • Research Agenda • Built for GitHub Pages
+        </div>
+    </footer>
+</body>
+
+</html>

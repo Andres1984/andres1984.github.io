@@ -1,374 +1,824 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Andrés Martínez, Ph.D. | Academic Website</title>
+  <meta name="description"
+    content="Academic website of Andrés Martínez, Ph.D. Research Professor in Data Science, Universidad Externado de Colombia." />
+  <style>
+    :root {
+      --navy: #14324a;
+      --navy-2: #1f4766;
+      --gold: #b88a44;
+      --gold-soft: #d7b27a;
+      --ink: #1c2430;
+      --muted: #5b6775;
+      --bg: #f5f7fa;
+      --card: #ffffff;
+      --line: #dbe3ea;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(20, 50, 74, 0.06);
+    }
 
-<meta charset="utf-8" />
-<meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+    * {
+      box-sizing: border-box;
+    }
 
+    html {
+      scroll-behavior: smooth;
+    }
 
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.68;
+    }
 
+    a {
+      color: var(--navy-2);
+      text-decoration: none;
+    }
 
-<title>My Profile</title>
+    a:hover {
+      color: var(--gold);
+    }
 
-<script src="site_libs/header-attrs-2.26/header-attrs.js"></script>
-<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<style>h1 {font-size: 34px;}
-       h1.title {font-size: 38px;}
-       h2 {font-size: 30px;}
-       h3 {font-size: 24px;}
-       h4 {font-size: 18px;}
-       h5 {font-size: 16px;}
-       h6 {font-size: 12px;}
-       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
-       pre:not([class]) { background-color: white }</style>
-<script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
+    .container {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+    }
 
-<style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(20, 50, 74, 0.08);
+    }
 
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      gap: 24px;
+    }
 
+    .brand {
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 0.2px;
+      font-size: 1rem;
+    }
 
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 0.96rem;
+    }
 
+    .hero {
+      background: linear-gradient(120deg, rgba(20, 50, 74, 0.97), rgba(31, 71, 102, 0.92));
+      color: var(--white);
+      padding: 74px 0 58px;
+    }
 
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 40px;
+      align-items: center;
+    }
 
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 6px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 999px;
+      font-size: 0.84rem;
+      color: #ecf2f7;
+      letter-spacing: 0.3px;
+    }
 
-<link rel="stylesheet" href="styles.css" type="text/css" />
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
 
+    .hero h2 {
+      margin: 0 0 18px;
+      font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+      color: #dbe7f1;
+      font-weight: 500;
+    }
 
+    .hero p {
+      margin: 0 0 18px;
+      color: #eef4f9;
+      max-width: 760px;
+      font-size: 1.02rem;
+    }
 
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-img {
-  max-width:100%;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-.html-widget {
-  margin-bottom: 20px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-summary {
-  display: list-item;
-}
-details > summary > p:only-child {
-  display: inline;
-}
-pre code {
-  padding: 0;
-}
-</style>
+    .hero .lead-question {
+      font-size: 1.08rem;
+      color: #ffffff;
+    }
 
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 26px;
+    }
 
-<style type="text/css">
-.dropdown-submenu {
-  position: relative;
-}
-.dropdown-submenu>.dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-top: -6px;
-  margin-left: -1px;
-  border-radius: 0 6px 6px 6px;
-}
-.dropdown-submenu:hover>.dropdown-menu {
-  display: block;
-}
-.dropdown-submenu>a:after {
-  display: block;
-  content: " ";
-  float: right;
-  width: 0;
-  height: 0;
-  border-color: transparent;
-  border-style: solid;
-  border-width: 5px 0 5px 5px;
-  border-left-color: #cccccc;
-  margin-top: 5px;
-  margin-right: -10px;
-}
-.dropdown-submenu:hover>a:after {
-  border-left-color: #adb5bd;
-}
-.dropdown-submenu.pull-left {
-  float: none;
-}
-.dropdown-submenu.pull-left>.dropdown-menu {
-  left: -100%;
-  margin-left: 10px;
-  border-radius: 6px 0 6px 6px;
-}
-</style>
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
 
-<script type="text/javascript">
-// manage active state of menu based on current page
-$(document).ready(function () {
-  // active menu anchor
-  href = window.location.pathname
-  href = href.substr(href.lastIndexOf('/') + 1)
-  if (href === "")
-    href = "index.html";
-  var menuAnchor = $('a[href="' + href + '"]');
+    .btn:hover {
+      transform: translateY(-1px);
+    }
 
-  // mark the anchor link active (and if it's in a dropdown, also mark that active)
-  var dropdown = menuAnchor.closest('li.dropdown');
-  if (window.bootstrap) { // Bootstrap 4+
-    menuAnchor.addClass('active');
-    dropdown.find('> .dropdown-toggle').addClass('active');
-  } else { // Bootstrap 3
-    menuAnchor.parent().addClass('active');
-    dropdown.addClass('active');
-  }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--white);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    }
 
-  // Navbar adjustments
-  var navHeight = $(".navbar").first().height() + 15;
-  var style = document.createElement('style');
-  var pt = "padding-top: " + navHeight + "px; ";
-  var mt = "margin-top: -" + navHeight + "px; ";
-  var css = "";
-  // offset scroll position for anchor links (for fixed navbar)
-  for (var i = 1; i <= 6; i++) {
-    css += ".section h" + i + "{ " + pt + mt + "}\n";
-  }
-  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
-  document.head.appendChild(style);
-});
-</script>
+    .btn-primary:hover {
+      background: #a97934;
+      color: var(--white);
+    }
 
-<!-- tabsets -->
+    .btn-secondary {
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.05);
+    }
 
-<style type="text/css">
-.tabset-dropdown > .nav-tabs {
-  display: inline-table;
-  max-height: 500px;
-  min-height: 44px;
-  overflow-y: auto;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
+    .portrait-card {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 28px;
+      padding: 20px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.20);
+      max-width: 440px;
+      margin-left: auto;
+    }
 
-.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "\e259";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
+    .portrait-card img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 22px;
+      display: block;
+    }
 
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "\e258";
-  font-family: 'Glyphicons Halflings';
-  border: none;
-}
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
 
-.tabset-dropdown > .nav-tabs > li.active {
-  display: block;
-}
+    .meta-box {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 14px 16px;
+      font-size: 0.95rem;
+      color: #f0f4f8;
+    }
 
-.tabset-dropdown > .nav-tabs > li > a,
-.tabset-dropdown > .nav-tabs > li > a:focus,
-.tabset-dropdown > .nav-tabs > li > a:hover {
-  border: none;
-  display: inline-block;
-  border-radius: 4px;
-  background-color: transparent;
-}
+    .meta-box a {
+      color: #fff;
+      text-decoration: underline;
+    }
 
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
-  display: block;
-  float: none;
-}
+    main {
+      padding: 42px 0 72px;
+    }
 
-.tabset-dropdown > .nav-tabs > li {
-  display: none;
-}
-</style>
+    section {
+      margin-bottom: 28px;
+      scroll-margin-top: 92px;
+    }
 
-<!-- code folding -->
+    .section-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
 
+    .section-title {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: 1.7rem;
+      letter-spacing: -0.02em;
+    }
 
+    .section-subtitle {
+      margin: 0 0 22px;
+      color: var(--muted);
+      max-width: 940px;
+    }
 
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 26px;
+    }
 
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .info-card {
+      background: linear-gradient(180deg, #ffffff, #fbfcfe);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .info-card h3 {
+      margin: 0 0 10px;
+      color: var(--navy);
+      font-size: 1.08rem;
+    }
+
+    .info-card p,
+    .info-card li {
+      margin: 0;
+      color: #334152;
+      font-size: 0.98rem;
+    }
+
+    .info-card ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .timeline-item {
+      border-left: 3px solid var(--gold);
+      padding-left: 16px;
+    }
+
+    .timeline-item h3 {
+      margin: 0 0 4px;
+      color: var(--navy);
+      font-size: 1.06rem;
+    }
+
+    .timeline-item .period {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.93rem;
+      margin-bottom: 6px;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: #334152;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(184, 138, 68, 0.12);
+      color: var(--navy);
+      border: 1px solid rgba(184, 138, 68, 0.24);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .publication-item,
+    .course-item,
+    .project-item,
+    .contact-item {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .publication-item:last-child,
+    .course-item:last-child,
+    .project-item:last-child,
+    .contact-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .publication-item h3,
+    .course-item h3,
+    .project-item h3,
+    .contact-item h3 {
+      margin: 0 0 6px;
+      color: var(--navy);
+      font-size: 1.02rem;
+    }
+
+    .publication-item p,
+    .course-item p,
+    .project-item p,
+    .contact-item p {
+      margin: 0;
+      color: #334152;
+    }
+
+    .story-highlight {
+      margin-top: 18px;
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(184, 138, 68, 0.10), rgba(20, 50, 74, 0.04));
+      border: 1px solid rgba(184, 138, 68, 0.20);
+    }
+
+    .story-highlight strong {
+      color: var(--navy);
+    }
+
+    .contact-photo-card {
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100%;
+    }
+
+    .contact-photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 18px;
+    }
+
+    footer {
+      padding: 28px 0 50px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      text-align: center;
+    }
+
+    @media (max-width: 980px) {
+
+      .hero-grid,
+      .two-col,
+      .grid-3,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .portrait-card {
+        max-width: 520px;
+        margin: 0;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .nav {
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 12px;
+        font-size: 0.9rem;
+      }
+
+      .hero {
+        padding-top: 54px;
+      }
+
+      .section-card {
+        padding: 22px;
+        border-radius: 20px;
+      }
+
+      .hero-meta {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
-
-
-<div class="container-fluid main-container">
-
-
-
-
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html">Andrés Martínez</a>
+  <header>
+    <div class="container nav">
+      <div class="brand">Andrés Martínez, Ph.D.</div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#courses">Courses</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li>
-  <a href="index.html">Home</a>
-</li>
-<li>
-  <a href="profile.html">CV</a>
-</li>
-<li>
-  <a href="teaching.html">Teaching</a>
-</li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="mailto:&lt;andres.marfh@gmail.com&gt;">
-    <span class="fa fa-envelope fa-lg"></span>
-     
-  </a>
-</li>
-<li>
-  <a href="http://github.com/Andres1984/">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
-<li>
-  <a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001611846">
-    <span class="fa fa-address-book fa-lg"></span>
-     
-  </a>
-</li>
-<li>
-  <a href="https://www.linkedin.com/in/andrés-martínez-patiño-ph-d-560a4b84/">
-    <span class="fa fa-linkedin fa-lg"></span>
-     
-  </a>
-</li>
-<li>
-  <a href="https://andres-martinez1984.shinyapps.io/dash/">
-    <span class="fa fa-cube fa-lg"></span>
-     
-  </a>
-</li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div><!--/.container -->
-</div><!--/.navbar -->
+  </header>
 
-<div id="header">
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Academic Profile • Data Science • Quantitative Finance</div>
+        <h1>Andrés Martínez, Ph.D.</h1>
+        <h2>Research Professor in Data Science | Department of Mathematics, Universidad Externado de Colombia</h2>
 
+        <p class="lead-question">
+          Markets do not begin with prices, they begin with information, expectations, and uncertainty.
+          My research is driven by a central question:
+          <strong>how are asset prices formed when information is incomplete, noisy, and shaped by investor
+            behavior?</strong>
+        </p>
 
+        <p>
+          To answer this question, I work at the intersection of asset valuation, behavioral finance,
+          Bayesian statistics, and data science, developing models that explain how signals, beliefs,
+          and volatility interact to produce observed prices in both traditional and emerging markets.
+        </p>
 
-<h1 class="title toc-ignore">My Profile</h1>
+        <p>
+          Rather than treating noise as a disturbance, I study it as part of the pricing process itself.
+          This perspective helps explain how markets organize information, how investors coordinate their
+          decisions, and how prices emerge from the interaction between structure and uncertainty.
+        </p>
 
-</div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="research-agenda.html">Explore the Research Story</a>
+          <a class="btn btn-secondary" href="#research">Explore Research</a>
+          <a class="btn btn-secondary" href="#contact">Get in Touch</a>
+        </div>
 
+        <div class="hero-meta">
+          <div class="meta-box">
+            <strong>Email:</strong><br />
+            manuel.martinez@uexternado.edu.co
 
-<div class="container profile-container mt-5">
-<div class="row align-items-center">
-<pre><code>&lt;div class=&quot;col-md-4 text-center mb-4 mb-md-0&quot;&gt;
-  &lt;img src=&quot;fotobn.jpg&quot; alt=&quot;Andrés Martínez Profile Image&quot; class=&quot;img-fluid rounded-circle profile-img shadow&quot;/&gt;
-&lt;/div&gt;
-&lt;div class=&quot;col-md-8&quot;&gt;
-  &lt;div class=&quot;profile-text text-justify&quot;&gt;
-    &lt;p&gt;
-      Finance and Economics professional with a Master&#39;s in Stochastic Engineering from the Munich University of Applied Sciences, Germany. Currently holds the position of full-time research professor in the Mathematics Department at Universidad Externado. He is responsible for undergraduate courses in Data Science, including Introduction to Data Science, Bayesian Statistics, and specializations in Finance with a focus on Stochastic Calculus, Risk Management, Blockchain, and Financial Derivatives. He is also the principal professor for Data Science modules for the master&#39;s programs in Business Administration (MBA) and Smart Cities at the same institution, as well as for the graduate programs of the Department of Telecommunications Law. He leads the Data Science Research Group and has been involved in consulting projects with the university, focusing on the implementation of visualization processes for pattern identification in the financial sector.
-    &lt;/p&gt;
-    &lt;p&gt;
-      He is currently a doctoral candidate in Business Administration at Universidad de los Andes, with research in pricing techniques, using Bayesian estimation in stochastic and data science models focused on price prediction and risk measurement in smart contracts.
-    &lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-</div>
-</div>
-<div id="my-team" class="section level3">
-<h3>My team</h3>
-<p>Bayern Fan “Bayern ist Leidenschaft rot weiss ist Fussballmacht denn
-Mia Sam Mia” Scorefor</p>
-</div>
-<div id="university-affiliation" class="section level3">
-<h3>University Affiliation</h3>
-<p>Universidad Externado de Colombia</p>
-<p>Departamento de Matemáticas</p>
-<p><a href="mailto:manuel.martinez@uexternado.edu.co"
-class="email">manuel.martinez@uexternado.edu.co</a></p>
-</div>
-<div id="current-studies" class="section level3">
-<h3>Current Studies</h3>
-<p>PhD in Management</p>
-<p>Universidad de los Andes</p>
-<p><a href="mailto:ma.martinezp12@uniandes.edu.co"
-class="email">ma.martinezp12@uniandes.edu.co</a></p>
-</div>
+          </div>
+          <div class="meta-box"><strong>Location:</strong><br />Bogotá, Colombia</div>
+          <div class="meta-box"><strong>Research Areas:</strong><br />Asset Valuation, Behavioral Finance, Bayesian
+            Analysis</div>
+          <div class="meta-box">
+            <strong>Profiles:</strong><br />
+            <a href="https://orcid.org/0000-0003-0792-0144" target="_blank">ORCID</a> ·
+            <a href="https://scholar.google.com.co/citations?user=ZiYkBVkAAAAJ&hl=es" target="_blank">Google Scholar</a>
+            ·
+            <a href="https://github.com/Andres1984" target="_blank">GitHub</a>
+          </div>
+        </div>
+      </div>
 
+      <div class="portrait-card">
+        <img src="profile.jpg" alt="Portrait of Andrés Martínez" />
+      </div>
+    </div>
+  </section>
 
+  <main>
+    <div class="container">
 
+      <section id="about">
+        <div class="section-card two-col">
+          <div>
+            <h2 class="section-title">About</h2>
+            <p class="section-subtitle">
+              Andrés Martínez is a finance and economics scholar with advanced training in stochastic engineering and
+              management research. He serves as a full-time research professor in the undergraduate Data Science program
+              at the Department of Mathematics, Universidad Externado de Colombia.
+            </p>
+            <p>
+              He holds an M.Sc. in Stochastic Engineering from Munich University of Applied Sciences, Germany, and a
+              doctorate in Management from Universidad de los Andes. His academic work bridges quantitative finance and
+              data science, with a focus on asset valuation, Bayesian statistics, risk modeling, blockchain, financial
+              derivatives, and computational approaches for decision-making under uncertainty.
+            </p>
+            <p>
+              In addition to his undergraduate teaching, he currently teaches Bayesian Statistics, Bayesian Statistics
+              for Machine Learning, and Asset Pricing. He also coordinates executive education initiatives and works on
+              building research narratives that combine rigorous modeling, behavioral interpretation, and visual
+              storytelling.
+            </p>
+          </div>
 
-</div>
+          <div class="info-card">
+            <h3>Academic Background</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="period">Doctorate in Management</div>
+                <p>Universidad de los Andes</p>
+              </div>
+              <div class="timeline-item">
+                <div class="period">M.Sc. in Stochastic Engineering</div>
+                <p>Munich University of Applied Sciences, Germany</p>
+              </div>
+              <div class="timeline-item">
+                <div class="period">Finance and Economics</div>
+                <p>Training grounded in quantitative methods, economic analysis, and financial decision-making.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<script>
+      <section id="research">
+        <div class="section-card">
+          <h2 class="section-title">Research</h2>
+          <p class="section-subtitle">
+            My research agenda develops statistical and economic tools to understand how prices are formed when markets
+            are volatile, information is heterogeneous, and investor behavior matters.
+          </p>
 
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
+          <div class="story-highlight">
+            <strong>Research question:</strong>
+            How are asset prices formed when information is incomplete, noisy, and shaped by investor behavior?
+            This question connects my work on asset valuation, market dynamics, Bayesian modeling, and behavioral
+            finance.
+          </div>
 
+          <div class="grid-3" style="margin-top:18px;">
+            <div class="info-card">
+              <h3>Asset Valuation</h3>
+              <p>
+                I study price formation in traditional and emerging markets using stochastic volatility models,
+                risk-factor approaches, and market microstructure perspectives. A central line of my research examines
+                how volatility dynamics, exposure to risk, and uncertainty shape observed prices.
+              </p>
+            </div>
 
-</script>
+            <div class="info-card">
+              <h3>Behavioral Finance</h3>
+              <p>
+                I analyze how information cascades, herding behavior, speculative expectations, and sentiment affect
+                trading decisions and price dynamics. This perspective is especially relevant in markets where
+                institutional anchors are weak and beliefs play a stronger role.
+              </p>
+            </div>
 
-<!-- tabsets -->
+            <div class="info-card">
+              <h3>Bayesian Statistics & Data Science</h3>
+              <p>
+                I use Bayesian hierarchical models, stochastic processes, nonparametric methods, and machine learning
+                tools to estimate risk, forecast returns, quantify uncertainty, and identify hidden structures in
+                financial data.
+              </p>
+            </div>
+          </div>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
+          <div class="grid-2" style="margin-top:18px;">
+            <div class="info-card">
+              <h3>Current Research Themes</h3>
+              <ul>
+                <li>Price formation under uncertainty</li>
+                <li>Volatility, noise, and market structure</li>
+                <li>Herding behavior and information transmission</li>
+                <li>Bayesian modeling for risk and return prediction</li>
+                <li>Visual storytelling for financial research</li>
+              </ul>
+            </div>
 
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open');
-  });
-});
-</script>
+            <div class="info-card">
+              <h3>Research Keywords</h3>
+              <div class="tag-list">
+                <span class="tag">Asset Valuation</span>
+                <span class="tag">Behavioral Finance</span>
+                <span class="tag">Bayesian Statistics</span>
+                <span class="tag">Stochastic Volatility</span>
+                <span class="tag">Risk Management</span>
+                <span class="tag">Market Microstructure</span>
+                <span class="tag">Data Science</span>
+                <span class="tag">Financial Storytelling</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<!-- code folding -->
+      <section id="publications">
+        <div class="section-card">
+          <h2 class="section-title">Selected Publications & Talks</h2>
+          <p class="section-subtitle">
+            A selection of publications and presentations reflecting my work in quantitative finance, cryptocurrency
+            markets, and stochastic modeling.
+          </p>
 
+          <div class="publication-item">
+            <h3>Relevancia del patrón de persistencia de Hurst en la gestión de portafolios de renta variable</h3>
+            <p>Revista de Métodos Cuantitativos para la Economía y la Empresa, 32, 66–82 (2021).</p>
+          </div>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
+          <div class="publication-item">
+            <h3>Pronóstico de un Título de Renta Fija en Colombia</h3>
+            <p>Research publication in quantitative fixed-income forecasting (2016).</p>
+          </div>
 
+          <div class="publication-item">
+            <h3>Structure of the Crypto-Asset Market: A Non-Parametric Bayesian Approach</h3>
+            <p>Presented at Bayes Plurinacional, Salta, Argentina (2024).</p>
+          </div>
+
+          <div class="publication-item">
+            <h3>Volatility Models for Currencies Returns in Latin America</h3>
+            <p>Presented at Congreso Redradar, Buenos Aires, Argentina (2020).</p>
+          </div>
+
+          <div class="publication-item">
+            <h3>Allocation of Fixed Income Instruments Using a Multivariate Model in the Colombian Market</h3>
+            <p>Presented at IX Congreso de Investigación Financiera, Monterrey, Mexico (2018).</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="teaching">
+        <div class="section-card two-col">
+          <div>
+            <h2 class="section-title">Teaching</h2>
+            <p class="section-subtitle">
+              My teaching integrates theory, computation, and practical problem solving. I aim to help students build
+              strong quantitative foundations while connecting models to real decision contexts.
+            </p>
+            <p>
+              I teach undergraduate and graduate courses in data science, finance, and applied statistics. My classes
+              often combine mathematical reasoning, coding, and applied interpretation, especially in areas where
+              uncertainty, risk, and prediction are central.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <h3>Teaching Philosophy</h3>
+            <p>
+              I believe that rigorous quantitative education should remain economically meaningful and computationally
+              relevant. For that reason, I emphasize conceptual clarity, reproducible analysis, and the interpretation
+              of models in real institutional and market settings.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="courses">
+        <div class="section-card">
+          <h2 class="section-title">Courses</h2>
+          <p class="section-subtitle">
+            Courses taught across undergraduate, graduate, and executive-level contexts.
+          </p>
+
+          <div class="course-item">
+            <h3>Bayesian Statistics for Machine Learning</h3>
+            <p>Bayesian inference, model comparison, hierarchical structures, and computational methods for machine
+              learning applications.</p>
+          </div>
+
+          <div class="course-item">
+            <h3>Bayesian Statistics</h3>
+            <p>Probability modeling, posterior inference, uncertainty quantification, and Bayesian decision-making.</p>
+          </div>
+
+          <div class="course-item">
+            <h3>Asset Pricing</h3>
+            <p>Valuation frameworks, risk-return relationships, stochastic finance, and market-based approaches to
+              financial decision-making.</p>
+          </div>
+
+          <div class="course-item">
+            <h3>Data Science for Financial Administration</h3>
+            <p>Analytical tools, data-driven decision-making, and quantitative applications for financial management.
+            </p>
+          </div>
+
+          <div class="course-item">
+            <h3>Stochastic Calculus and Finance</h3>
+            <p>Advanced applications in asset pricing, derivatives, and risk measurement.</p>
+          </div>
+
+          <div class="course-item">
+            <h3>Blockchain and Financial Innovation</h3>
+            <p>Markets, protocols, valuation challenges, and the role of decentralized systems.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="section-card">
+          <h2 class="section-title">Projects, Leadership & Academic Service</h2>
+          <p class="section-subtitle">
+            Research leadership, consulting, and interdisciplinary collaboration are central to my academic work.
+          </p>
+
+          <div class="project-item">
+            <h3>Lead, Data Science Research Group</h3>
+            <p>Coordination of research activities, project development, and academic initiatives in data science and
+              quantitative methods.</p>
+          </div>
+
+          <div class="project-item">
+            <h3>Executive Education and Extension Coordination</h3>
+            <p>Academic coordination of executive education and extension-based courses developed by the Department of
+              Mathematics.</p>
+          </div>
+
+          <div class="project-item">
+            <h3>Financial Data Visualization and Pattern Detection</h3>
+            <p>Participation in consulting and research projects focused on visualization processes for identifying
+              patterns in financial data.</p>
+          </div>
+
+          <div class="project-item">
+            <h3>Research Storytelling and Animated Explanations</h3>
+            <p>Development of visual and animated narratives to communicate price formation, volatility, and investor
+              behavior.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="section-card grid-2">
+          <div>
+            <h2 class="section-title">Contact</h2>
+            <p class="section-subtitle">
+              I welcome academic collaborations, research conversations, and opportunities related to data science,
+              finance, and Bayesian modeling.
+            </p>
+
+            <div class="contact-item">
+              <h3>Email</h3>
+              <p>
+                <a href="mailto:manuel.martinez@uexternado.edu.co">manuel.martinez@uexternado.edu.co</a><br />
+                <a href="mailto:andres.marfh@gmail.com">andres.marfh@gmail.com</a><br />
+                <a
+                  href="mailto:investigacioncienciadedatos@uexternado.edu.co">investigacioncienciadedatos@uexternado.edu.co</a><br />
+                <a href="mailto:ma.martinezp12@uniandes.edu.co">ma.martinezp12@uniandes.edu.co</a>
+              </p>
+            </div>
+
+            <div class="contact-item">
+              <h3>Professional Profiles</h3>
+              <p>
+                <a href="https://orcid.org/0000-0003-0792-0144" target="_blank">ORCID</a> ·
+                <a href="https://scholar.google.com.co/citations?user=ZiYkBVkAAAAJ&hl=es" target="_blank">Google
+                  Scholar</a> ·
+                <a href="https://github.com/Andres1984" target="_blank">GitHub</a>
+              </p>
+            </div>
+
+            <div class="contact-item">
+              <h3>Institution</h3>
+              <p>Department of Mathematics, Universidad Externado de Colombia, Bogotá.</p>
+            </div>
+          </div>
+
+          <div class="info-card contact-photo-card">
+            <img src="paluti.jpg" alt="Portrait or academic image of Andrés Martínez" />
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Andrés Martínez, Ph.D. • Academic Website • Built for GitHub Pages
+    </div>
+  </footer>
 </body>
+
 </html>
