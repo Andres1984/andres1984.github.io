@@ -372,6 +372,63 @@
       color: var(--navy);
     }
 
+    .events-list {
+      display: grid;
+      gap: 22px;
+    }
+
+    .event-card {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
+      align-items: center;
+      background: linear-gradient(180deg, #ffffff, #fbfcfe);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .event-card.reverse {
+      grid-template-columns: 0.9fr 1.1fr;
+    }
+
+    .event-text h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: 1.18rem;
+    }
+
+    .event-date {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-weight: 700;
+      color: var(--gold);
+      font-size: 0.94rem;
+    }
+
+    .event-text p {
+      margin: 0;
+      color: #334152;
+      font-size: 0.98rem;
+    }
+
+    .event-image {
+      width: 100%;
+      height: 240px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #e9eef4;
+    }
+
+    .event-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
     .contact-photo-card {
       padding: 0;
       overflow: hidden;
@@ -408,6 +465,18 @@
       .portrait-card {
         max-width: 520px;
         margin: 0;
+      }
+    }
+
+    @media (max-width: 900px) {
+
+      .event-card,
+      .event-card.reverse {
+        grid-template-columns: 1fr;
+      }
+
+      .event-image {
+        height: 220px;
       }
     }
 
@@ -452,6 +521,7 @@
         <a href="#teaching">Teaching</a>
         <a href="#courses">Courses</a>
         <a href="#projects">Projects</a>
+        <a href="#events">Events</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -493,7 +563,6 @@
           <div class="meta-box">
             <strong>Email:</strong><br />
             manuel.martinez@uexternado.edu.co
-
           </div>
           <div class="meta-box"><strong>Location:</strong><br />Bogotá, Colombia</div>
           <div class="meta-box"><strong>Research Areas:</strong><br />Asset Valuation, Behavioral Finance, Bayesian
@@ -598,9 +667,8 @@
               <h3>Bayesian Statistics & Data Science</h3>
               <p>
                 I use Bayesian hierarchical models, causal inference, stochastic processes, nonparametric methods, and
-                machine learning
-                tools to estimate risk, forecast returns, quantify uncertainty, and identify hidden structures in
-                financial data.
+                machine learning tools to estimate risk, forecast returns, quantify uncertainty, and identify hidden
+                structures in financial data.
               </p>
             </div>
           </div>
@@ -766,6 +834,88 @@
             <h3>Research Storytelling and Animated Explanations</h3>
             <p>Development of visual and animated narratives to communicate price formation, volatility, and investor
               behavior.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="events">
+        <div class="section-card">
+          <h2 class="section-title">Academic Events</h2>
+          <p class="section-subtitle">
+            I have contributed to the organization of academic events that strengthen research communities,
+            foster interdisciplinary collaboration, and promote data science as a shared space for inquiry,
+            dialogue, and applied knowledge.
+          </p>
+
+          <div class="events-list">
+
+            <div class="event-card">
+              <div class="event-text">
+                <span class="event-date">October 2023</span>
+                <h3>First Data Science Meeting</h3>
+                <p>
+                  Organized at Universidad Externado de Colombia within the undergraduate Data Science program,
+                  this event helped consolidate an emerging academic community around data analysis,
+                  quantitative thinking, and interdisciplinary applications. It served as an early institutional
+                  space to connect students, faculty, and research interests in the field.
+                </p>
+              </div>
+              <div class="event-image">
+                <img src="evento-ciencia-datos-2023.jpg"
+                  alt="First Data Science Meeting at Universidad Externado de Colombia" />
+              </div>
+            </div>
+
+            <div class="event-card reverse">
+              <div class="event-image">
+                <img src="statdatahub-2024.jpg" alt="StatDataHUB event in collaboration with Universidad Santo Tomás" />
+              </div>
+              <div class="event-text">
+                <span class="event-date">2024</span>
+                <h3>StatDataHUB</h3>
+                <p>
+                  Developed at Universidad Externado de Colombia in collaboration with Universidad Santo Tomás,
+                  StatDataHUB created a space for dialogue between statistics, data science, and applied research.
+                  The event promoted collaboration across institutions and encouraged the exchange of methodological
+                  and practical perspectives in contemporary data-driven research.
+                </p>
+              </div>
+            </div>
+
+            <div class="event-card">
+              <div class="event-text">
+                <span class="event-date">2025</span>
+                <h3>MeetUP Bayes-IA-ML</h3>
+                <p>
+                  This collaborative event brought together Universidad de La Sabana, Universidad del Rosario,
+                  Universidad de La Salle, Escuela de Ingeniería de Antioquia, and the Bayes Plurinacional Community.
+                  It was designed as a meeting point for Bayesian statistics, artificial intelligence, and machine
+                  learning,
+                  strengthening research networks and promoting academic exchange across institutions.
+                </p>
+              </div>
+              <div class="event-image">
+                <img src="meetup-bayes-ia-ml.jpg" alt="MeetUP Bayes-IA-ML collaborative academic event" />
+              </div>
+            </div>
+
+            <div class="event-card reverse">
+              <div class="event-image">
+                <img src="semilleros-2026.jpg"
+                  alt="Encuentro de Semilleros de Investigación Aplicado a Ciencia de Datos" />
+              </div>
+              <div class="event-text">
+                <span class="event-date">April 17, 2026</span>
+                <h3>Encuentro de Semilleros de Investigación Aplicado a Ciencia de Datos</h3>
+                <p>
+                  Organized at Universidad Externado de Colombia, this event focuses on strengthening student research,
+                  showcasing early-stage projects, and encouraging the use of data science in applied research contexts.
+                  It reflects an institutional commitment to research training, academic community building,
+                  and the development of new generations of researchers.
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events | Andrés Martínez, Ph.D.</title>
+    <style>
+        :root {
+            --navy: #14324a;
+            --navy-2: #1f4766;
+            --gold: #b88a44;
+            --ink: #1c2430;
+            --muted: #5b6775;
+            --bg: #f5f7fa;
+            --card: #ffffff;
+            --line: #dbe3ea;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(20, 50, 74, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Inter", "Segoe UI", Arial, sans-serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.65;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: min(1120px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        header {
+            background: linear-gradient(120deg, rgba(20, 50, 74, 0.97), rgba(31, 71, 102, 0.92));
+            color: white;
+            padding: 72px 0 46px;
+        }
+
+        .top-link {
+            display: inline-block;
+            margin-bottom: 18px;
+            padding: 8px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            border-radius: 999px;
+            font-size: 0.9rem;
+            color: white;
+        }
+
+        .top-link:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-text {
+            max-width: 760px;
+            font-size: 1.05rem;
+            color: #eaf1f7;
+            margin: 0;
+        }
+
+        main {
+            padding: 34px 0 64px;
+        }
+
+        .intro-card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            padding: 24px;
+            box-shadow: var(--shadow);
+            margin-bottom: 24px;
+        }
+
+        .intro-card p {
+            margin: 0;
+            color: #334152;
+            font-size: 1rem;
+        }
+
+        .events-grid {
+            display: grid;
+            gap: 22px;
+        }
+
+        .event-card {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 22px;
+            align-items: center;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .event-card.reverse {
+            grid-template-columns: 0.95fr 1.05fr;
+        }
+
+        .event-text h2 {
+            margin: 0 0 8px;
+            color: var(--navy);
+            font-size: 1.35rem;
+            line-height: 1.2;
+        }
+
+        .event-date {
+            display: inline-block;
+            margin-bottom: 10px;
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .event-text p {
+            margin: 0;
+            color: #334152;
+            font-size: 0.98rem;
+        }
+
+        .event-image {
+            width: 100%;
+            height: 250px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            background: #e9eef4;
+        }
+
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        footer {
+            padding: 26px 0 44px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        @media (max-width: 900px) {
+
+            .event-card,
+            .event-card.reverse {
+                grid-template-columns: 1fr;
+            }
+
+            .event-image {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <a class="top-link" href="index.html">← Back to Home</a>
+            <h1>Academic Events</h1>
+            <p class="hero-text">
+                Events are also a way of building academic community, connecting institutions,
+                and creating spaces where data science becomes a shared research language.
+            </p>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+
+            <div class="intro-card">
+                <p>
+                    A selection of events that reflect my commitment to research formation,
+                    collaboration, and the growth of applied data science communities.
+                </p>
+            </div>
+
+            <div class="events-grid">
+
+                <div class="event-card">
+                    <div class="event-text">
+                        <span class="event-date">October 2023</span>
+                        <h2>First Data Science Meeting</h2>
+                        <p>
+                            Organized at Universidad Externado de Colombia, this event helped strengthen
+                            the academic identity of the undergraduate Data Science program and opened a shared
+                            space for dialogue between students, faculty, and research interests.
+                        </p>
+                    </div>
+                    <div class="event-image">
+                        <img src="evento-ciencia-datos-2023.jpg" alt="First Data Science Meeting" />
+                    </div>
+                </div>
+
+                <div class="event-card reverse">
+                    <div class="event-image">
+                        <img src="statdatahub-2024.jpg" alt="StatDataHUB" />
+                    </div>
+                    <div class="event-text">
+                        <span class="event-date">2024</span>
+                        <h2>StatDataHUB</h2>
+                        <p>
+                            Developed at Universidad Externado de Colombia in collaboration with Universidad Santo
+                            Tomás,
+                            this event created an academic meeting point between statistics, data science, and applied
+                            research.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-text">
+                        <span class="event-date">2025</span>
+                        <h2>MeetUP Bayes-IA-ML</h2>
+                        <p>
+                            A collaborative initiative with Universidad de La Sabana, Universidad del Rosario,
+                            Universidad de La Salle, Escuela de Ingeniería de Antioquia, and the Bayes Plurinacional
+                            Community,
+                            centered on Bayesian methods, AI, and machine learning.
+                        </p>
+                    </div>
+                    <div class="event-image">
+                        <img src="meetup-bayes-ia-ml.jpg" alt="MeetUP Bayes IA ML" />
+                    </div>
+                </div>
+
+                <div class="event-card reverse">
+                    <div class="event-image">
+                        <img src="semilleros-2026.jpg"
+                            alt="Encuentro de Semilleros de Investigación Aplicado a Ciencia de Datos" />
+                    </div>
+                    <div class="event-text">
+                        <span class="event-date">April 17, 2026</span>
+                        <h2>Encuentro de Semilleros de Investigación Aplicado a Ciencia de Datos</h2>
+                        <p>
+                            Organized at Universidad Externado de Colombia, this event is focused on student research,
+                            early-stage projects, and the role of data science in applied inquiry across disciplines.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            © 2026 Andrés Martínez, Ph.D.
+        </div>
+    </footer>
+</body>
+
+</html>
