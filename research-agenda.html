@@ -48,7 +48,7 @@
         }
 
         .container {
-            width: min(1100px, calc(100% - 48px));
+            width: min(1200px, calc(100% - 48px));
             margin: 0 auto;
         }
 
@@ -177,10 +177,10 @@
 
         .story-step {
             display: grid;
-            grid-template-columns: 110px 1fr;
-            gap: 24px;
+            grid-template-columns: 84px minmax(0, 1fr);
+            gap: 22px;
             align-items: start;
-            padding: 24px 0;
+            padding: 30px 0;
             border-bottom: 1px solid var(--line);
         }
 
@@ -190,8 +190,8 @@
         }
 
         .step-number {
-            width: 76px;
-            height: 76px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             background: linear-gradient(135deg, rgba(20, 50, 74, 1), rgba(184, 138, 68, 0.9));
             color: white;
@@ -199,24 +199,99 @@
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             box-shadow: 0 12px 24px rgba(20, 50, 74, 0.15);
+            position: sticky;
+            top: 110px;
         }
 
-        .step-content h3 {
-            margin: 0 0 10px;
+        .step-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.9fr);
+            gap: 28px;
+            align-items: start;
+        }
+
+        .step-text {
+            min-width: 0;
+        }
+
+        .step-text h3 {
+            margin: 0 0 14px;
             color: var(--navy);
-            font-size: 1.2rem;
+            font-size: 1.25rem;
+            line-height: 1.25;
+        }
+
+        .step-text .lead {
+            font-size: 1.03rem;
+            color: var(--ink);
+        }
+
+        .step-text p {
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+
+        .step-visual {
+            min-width: 0;
         }
 
         .animation-box {
-            margin-top: 14px;
             padding: 18px;
             border-radius: 18px;
             border: 1px dashed rgba(20, 50, 74, 0.22);
             background: linear-gradient(180deg, #fbfcfe, #f8fafc);
-            color: var(--muted);
-            font-size: 0.95rem;
+            overflow: hidden;
+            position: sticky;
+            top: 110px;
+        }
+
+        .asset-animation-wrapper {
+            width: 100%;
+            text-align: center;
+        }
+
+        .asset-animation-wrapper img {
+            width: min(100%, 420px);
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 16px auto;
+            border-radius: 14px;
+            box-shadow: 0 10px 24px rgba(20, 50, 74, 0.08);
+            background: #fff;
+        }
+
+        .asset-animation-controls {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+
+        .asset-animation-controls button {
+            padding: 8px 12px;
+            border: 1px solid rgba(20, 50, 74, 0.12);
+            background: white;
+            color: var(--navy);
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            min-width: 52px;
+        }
+
+        .asset-animation-controls button:hover {
+            background: var(--navy);
+            color: white;
+        }
+
+        .animation-slider {
+            width: 100%;
+            max-width: 420px;
+            accent-color: var(--gold);
         }
 
         .grid-2 {
@@ -261,28 +336,151 @@
             text-align: center;
         }
 
-        @media (max-width: 840px) {
+        .animation-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 5000;
+            display: none;
+        }
 
-            .story-step,
-            .grid-2 {
+        .animation-modal.active {
+            display: block;
+        }
+
+        .animation-modal-backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 20, 30, 0.72);
+            backdrop-filter: blur(4px);
+        }
+
+        .animation-modal-content {
+            position: relative;
+            width: min(92vw, 1100px);
+            max-height: 90vh;
+            margin: 4vh auto;
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 22px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+        }
+
+        .animation-modal-inner {
+            text-align: center;
+        }
+
+        .animation-modal-inner img {
+            width: min(100%, 980px);
+            max-height: 68vh;
+            height: auto;
+            display: block;
+            margin: 0 auto 18px auto;
+            border-radius: 16px;
+            background: #fff;
+        }
+
+        .animation-modal-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            border: none;
+            background: #14324a;
+            color: #fff;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .animation-modal-close:hover {
+            background: #1f4766;
+        }
+
+        .modal-controls {
+            justify-content: center;
+            margin-bottom: 14px;
+        }
+
+        .modal-slider {
+            max-width: 900px;
+            width: 100%;
+            accent-color: var(--gold);
+        }
+
+        @media (max-width: 1100px) {
+            .step-layout {
+                grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.85fr);
+            }
+
+            .asset-animation-wrapper img {
+                width: min(100%, 380px);
+            }
+
+            .animation-slider {
+                max-width: 380px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .story-step {
                 grid-template-columns: 1fr;
             }
 
             .step-number {
+                position: static;
                 width: 62px;
                 height: 62px;
                 font-size: 1rem;
+                margin-bottom: 8px;
+            }
+
+            .step-layout {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .animation-box {
+                position: static;
+            }
+
+            .asset-animation-wrapper img {
+                width: min(100%, 520px);
+            }
+
+            .animation-slider {
+                max-width: 520px;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .animation-modal-content {
+                width: min(96vw, 1100px);
+                margin: 2vh auto;
+                padding: 18px;
+            }
+
+            .animation-modal-inner img {
+                max-height: 60vh;
             }
         }
 
         @media (max-width: 720px) {
             .container {
-                width: min(100% - 28px, 1100px);
+                width: min(100% - 28px, 1200px);
             }
 
             .section-card {
                 padding: 22px;
                 border-radius: 20px;
+            }
+
+            .hero {
+                padding: 56px 0 44px;
             }
         }
     </style>
@@ -334,125 +532,214 @@
 
                     <div class="story-step">
                         <div class="step-number">01</div>
-                        <div class="step-content">
-                            <h3>Markets begin with information</h3>
-                            <p>
-                                Financial markets do not begin with prices. They begin with signals. In traditional
-                                settings,
-                                institutions such as central banks, regulators, and financial intermediaries provide
-                                structured
-                                information that helps investors interpret the economy and form expectations about the
-                                value of assets.
-                            </p>
-                            <p>
-                                My research starts from this idea: price formation depends on how information is
-                                organized,
-                                interpreted, and transmitted across the market.
-                            </p>
-                            <div class="animation-box">
-                                <strong>Animation placeholder:</strong> floating points or signals entering the market,
-                                initially dispersed, then forming structured paths or anchors.
+                        <div class="step-layout">
+                            <div class="step-text">
+                                <h3>Markets begin with information</h3>
+                                <p class="lead">
+                                    Financial markets do not begin with prices. They begin with signals. In traditional
+                                    settings, institutions such as central banks, regulators, and financial
+                                    intermediaries provide structured information that helps investors interpret the
+                                    economy and form expectations about the value of assets.
+                                </p>
+                                <p>
+                                    My research starts from this idea: price formation depends on how information is
+                                    organized, interpreted, and transmitted across the market.
+                                </p>
+                                <p>
+                                    Here you can place a long text block of around 1200 words. This layout is designed
+                                    precisely for that case: the text remains readable as an article on the left, while
+                                    the animation stays visible on the right as a compact visual companion rather than
+                                    overwhelming the page.
+                                </p>
+                                <p>
+                                    This structure works especially well for research narratives, where the prose needs
+                                    room to develop conceptual arguments and the visual element reinforces the logic of
+                                    the section without interrupting the reading flow.
+                                </p>
+                            </div>
+
+                            <div class="step-visual">
+                                <div class="animation-box">
+                                    <div class="asset-animation-wrapper">
+                                        <img id="assetPricingFrame"
+                                            src="https://andres1984.github.io/presentacionavolatilidad/asset_pricing_revelation_fixed_frames/frame0000000.png"
+                                            alt="Asset pricing animation">
+
+                                        <div class="asset-animation-controls">
+                                            <button type="button" onclick="assetFirst()">⏮</button>
+                                            <button type="button" onclick="assetPrev()">◀</button>
+                                            <button type="button" onclick="assetPlay()">Play</button>
+                                            <button type="button" onclick="assetPause()">Pause</button>
+                                            <button type="button" onclick="assetNext()">▶</button>
+                                            <button type="button" onclick="assetLast()">⏭</button>
+                                            <button type="button" onclick="openAnimationModal('asset')">Expand</button>
+                                        </div>
+
+                                        <input id="assetPricingSlider" class="animation-slider" type="range" min="0"
+                                            max="0" step="1" value="0" oninput="assetGoTo(parseInt(this.value,10))">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="story-step">
                         <div class="step-number">02</div>
-                        <div class="step-content">
-                            <h3>Investors do not react in the same way</h3>
-                            <p>
-                                Once information enters the market, investors process it through expectations, beliefs,
-                                strategic behavior, and emotional responses. This is where behavioral finance becomes
-                                central.
-                                Herding, information cascades, and speculative reactions can amplify trends and reshape
-                                market dynamics.
-                            </p>
-                            <p>
-                                Instead of assuming homogeneous agents, I study how heterogeneous reactions help create
-                                submarkets,
-                                local biases, and collective movements.
-                            </p>
-                            <div class="animation-box">
-                                <strong>Animation placeholder:</strong> clusters forming from investor interactions,
-                                with some points
-                                changing color as agents imitate or respond to the same signal.
+                        <div class="step-layout">
+                            <div class="step-text">
+                                <h3>Investors do not react in the same way</h3>
+                                <p class="lead">
+                                    Once information enters the market, investors process it through expectations,
+                                    beliefs, strategic behavior, and emotional responses. This is where behavioral
+                                    finance becomes central.
+                                </p>
+                                <p>
+                                    Herding, information cascades, and speculative reactions can amplify trends and
+                                    reshape market dynamics. Instead of assuming homogeneous agents, I study how
+                                    heterogeneous reactions help create submarkets, local biases, and collective
+                                    movements.
+                                </p>
+                                <p>
+                                    When you replace this placeholder with your full text, the visual panel on the
+                                    right can host another animation without changing the structure of the page.
+                                </p>
+                            </div>
+
+                            <div class="step-visual">
+                                <div class="animation-box">
+                                    <div class="asset-animation-wrapper">
+                                        <img id="mlMarketFrame"
+                                            src="https://andres1984.github.io/presentacionavolatilidad/ml_market_animation_left_panel_frames/frame0000000.png"
+                                            alt="ML market animation">
+
+                                        <div class="asset-animation-controls">
+                                            <button type="button" onclick="mlFirst()">⏮</button>
+                                            <button type="button" onclick="mlPrev()">◀</button>
+                                            <button type="button" onclick="mlPlay()">Play</button>
+                                            <button type="button" onclick="mlPause()">Pause</button>
+                                            <button type="button" onclick="mlNext()">▶</button>
+                                            <button type="button" onclick="mlLast()">⏭</button>
+                                            <button type="button" onclick="openAnimationModal('ml')">Expand</button>
+                                        </div>
+
+                                        <input id="mlMarketSlider" class="animation-slider" type="range" min="0" max="0"
+                                            step="1" value="0" oninput="mlGoTo(parseInt(this.value,10))">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="story-step">
                         <div class="step-number">03</div>
-                        <div class="step-content">
-                            <h3>Prices emerge from signal, structure, and noise</h3>
-                            <p>
-                                Prices are not only reflections of fundamentals. They are also shaped by uncertainty,
-                                volatility,
-                                and the way investors coordinate their actions. In this sense, noise is not simply a
-                                disturbance;
-                                it is part of the market process itself.
-                            </p>
-                            <p>
-                                A key objective of my work is to understand how market prices emerge from the
-                                interaction between
-                                meaningful signals, behavioral biases, and stochastic fluctuations.
-                            </p>
-                            <div class="animation-box">
-                                <strong>Animation placeholder:</strong> red core for structural signal, orange ring for
-                                market price,
-                                gray or blue points for residual noise, and local submarket dynamics.
+                        <div class="step-layout">
+                            <div class="step-text">
+                                <h3>Prices emerge from signal, structure, and noise</h3>
+                                <p class="lead">
+                                    Prices are not only reflections of fundamentals. They are also shaped by
+                                    uncertainty, volatility, and the way investors coordinate their actions.
+                                </p>
+                                <p>
+                                    In this sense, noise is not simply a disturbance; it is part of the market process
+                                    itself. A key objective of my work is to understand how market prices emerge from
+                                    the interaction between meaningful signals, behavioral biases, and stochastic
+                                    fluctuations.
+                                </p>
+                            </div>
+
+                            <div class="step-visual">
+                                <div class="animation-box">
+                                    <div class="asset-animation-wrapper">
+                                        <img id="priceMetaphorFrame"
+                                            src="https://andres1984.github.io/presentacionavolatilidad/price_metaphor_classroom_frames/frame0000000.png"
+                                            alt="Price metaphor classroom animation">
+
+                                        <div class="asset-animation-controls">
+                                            <button type="button" onclick="priceFirst()">⏮</button>
+                                            <button type="button" onclick="pricePrev()">◀</button>
+                                            <button type="button" onclick="pricePlay()">Play</button>
+                                            <button type="button" onclick="pricePause()">Pause</button>
+                                            <button type="button" onclick="priceNext()">▶</button>
+                                            <button type="button" onclick="priceLast()">⏭</button>
+                                            <button type="button" onclick="openAnimationModal('price')">Expand</button>
+                                        </div>
+
+                                        <input id="priceMetaphorSlider" class="animation-slider" type="range" min="0"
+                                            max="0" step="1" value="0" oninput="priceGoTo(parseInt(this.value,10))">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="story-step">
                         <div class="step-number">04</div>
-                        <div class="step-content">
-                            <h3>Uncertainty requires probabilistic models</h3>
-                            <p>
-                                Because markets are uncertain, the modeling framework must represent uncertainty
-                                explicitly.
-                                This is why Bayesian statistics plays a central role in my research. Bayesian methods
-                                allow the
-                                integration of prior knowledge, observed data, and latent market structures in a
-                                coherent way.
-                            </p>
-                            <p>
-                                Through hierarchical models, stochastic volatility frameworks, and Bayesian learning, I
-                                study
-                                how risk, heterogeneity, and information interact across assets and over time.
-                            </p>
-                            <div class="animation-box">
-                                <strong>Animation placeholder:</strong> dynamic updating of distributions, latent layers
-                                becoming
-                                visible, or points reorganizing as information is learned.
+                        <div class="step-layout">
+                            <div class="step-text">
+                                <h3>Uncertainty requires probabilistic models</h3>
+                                <p class="lead">
+                                    Because markets are uncertain, the modeling framework must represent uncertainty
+                                    explicitly. This is why Bayesian statistics plays a central role in my research.
+                                </p>
+                                <p>
+                                    Bayesian methods allow the integration of prior knowledge, observed data, and
+                                    latent market structures in a coherent way. Through hierarchical models,
+                                    stochastic volatility frameworks, and Bayesian learning, I study how risk,
+                                    heterogeneity, and information interact across assets and over time.
+                                </p>
+                            </div>
+
+                            <div class="step-visual">
+                                <div class="animation-box">
+                                    <div class="asset-animation-wrapper">
+                                        <img id="appleBtcFrame"
+                                            src="https://andres1984.github.io/presentacionavolatilidad/apple_btc_flags_floating_frames/frame0000000.png"
+                                            alt="Apple and BTC flags floating animation">
+
+                                        <div class="asset-animation-controls">
+                                            <button type="button" onclick="appleFirst()">⏮</button>
+                                            <button type="button" onclick="applePrev()">◀</button>
+                                            <button type="button" onclick="applePlay()">Play</button>
+                                            <button type="button" onclick="applePause()">Pause</button>
+                                            <button type="button" onclick="appleNext()">▶</button>
+                                            <button type="button" onclick="appleLast()">⏭</button>
+                                            <button type="button" onclick="openAnimationModal('apple')">Expand</button>
+                                        </div>
+
+                                        <input id="appleBtcSlider" class="animation-slider" type="range" min="0" max="0"
+                                            step="1" value="0" oninput="appleGoTo(parseInt(this.value,10))">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="story-step">
                         <div class="step-number">05</div>
-                        <div class="step-content">
-                            <h3>Data science helps reveal hidden structure</h3>
-                            <p>
-                                Data science complements financial theory by providing tools to detect nonlinear
-                                patterns,
-                                classify structures, and build predictive systems. In my research, machine learning is
-                                not used
-                                as a substitute for economic reasoning, but as a bridge between theory, evidence, and
-                                decision-making.
-                            </p>
-                            <p>
-                                This allows me to connect pricing models with visual narratives that explain how markets
-                                learn,
-                                differentiate signal from noise, and generate observable price paths.
-                            </p>
-                            <div class="animation-box">
-                                <strong>Animation placeholder:</strong> all points begin in one color, then the
-                                algorithm gradually
-                                separates structure, signal, and residual noise.
+                        <div class="step-layout">
+                            <div class="step-text">
+                                <h3>Data science helps reveal hidden structure</h3>
+                                <p class="lead">
+                                    Data science complements financial theory by providing tools to detect nonlinear
+                                    patterns, classify structures, and build predictive systems.
+                                </p>
+                                <p>
+                                    In my research, machine learning is not used as a substitute for economic
+                                    reasoning, but as a bridge between theory, evidence, and decision-making. This
+                                    allows me to connect pricing models with visual narratives that explain how markets
+                                    learn, differentiate signal from noise, and generate observable price paths.
+                                </p>
+                            </div>
+
+                            <div class="step-visual">
+                                <div class="animation-box">
+                                    <strong>Animation placeholder:</strong> all points begin in one color, then the
+                                    algorithm gradually separates structure, signal, and residual noise.
+                                </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </section>
 
@@ -464,18 +751,16 @@
                             <h3>Research Foundations</h3>
                             <p>
                                 My work is grounded in asset valuation, behavioral finance, stochastic modeling, and
-                                Bayesian inference.
-                                Across these areas, I aim to build models that remain economically meaningful while
-                                being statistically rigorous.
+                                Bayesian inference. Across these areas, I aim to build models that remain economically
+                                meaningful while being statistically rigorous.
                             </p>
                         </div>
                         <div class="info-card">
                             <h3>Methodological Toolkit</h3>
                             <p>
                                 Bayesian hierarchical models, stochastic volatility, risk-factor models, market
-                                microstructure,
-                                machine learning, data visualization, and computational methods for uncertainty
-                                quantification.
+                                microstructure, machine learning, data visualization, and computational methods for
+                                uncertainty quantification.
                             </p>
                         </div>
                     </div>
@@ -487,8 +772,7 @@
                     <h2 class="section-title">Visual Agenda</h2>
                     <p>
                         This research page is designed to connect directly with animated explanations. Each animation
-                        can function
-                        as a visual chapter of the agenda:
+                        can function as a visual chapter of the agenda.
                     </p>
 
                     <div class="grid-2">
@@ -511,13 +795,6 @@
                             <h3>Animation 4 — Learning under uncertainty</h3>
                             <p>Bayesian and machine learning tools identify hidden patterns and residual noise.</p>
                         </div>
-                    </div>
-
-                    <div class="animation-box" style="margin-top:18px;">
-                        <strong>How to connect your current animations:</strong>
-                        use your existing blue, gray, red, and orange visual language to represent information, noise,
-                        structural signal, and market price. This page already gives you the narrative sequence to place
-                        them.
                     </div>
                 </div>
             </section>
@@ -546,6 +823,293 @@
             © 2026 Andrés Martínez, Ph.D. • Research Agenda • Built for GitHub Pages
         </div>
     </footer>
+
+    <div id="animationModal" class="animation-modal" aria-hidden="true">
+        <div class="animation-modal-backdrop" onclick="closeAnimationModal()"></div>
+
+        <div class="animation-modal-content">
+            <button class="animation-modal-close" type="button" onclick="closeAnimationModal()">✕</button>
+
+            <div class="animation-modal-inner">
+                <img id="modalAnimationFrame" src="" alt="Expanded animation">
+
+                <div class="asset-animation-controls modal-controls">
+                    <button type="button" onclick="modalFirst()">⏮</button>
+                    <button type="button" onclick="modalPrev()">◀</button>
+                    <button type="button" onclick="modalPlay()">Play</button>
+                    <button type="button" onclick="modalPause()">Pause</button>
+                    <button type="button" onclick="modalNext()">▶</button>
+                    <button type="button" onclick="modalLast()">⏭</button>
+                </div>
+
+                <input id="modalAnimationSlider" class="modal-slider" type="range" min="0" max="0" step="1" value="0"
+                    oninput="modalGoTo(parseInt(this.value,10))">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function frameName(i) {
+            return "frame" + String(i).padStart(7, "0") + ".png";
+        }
+
+        async function imageExists(url) {
+            return new Promise((resolve) => {
+                const img = new Image();
+                img.onload = () => resolve(true);
+                img.onerror = () => resolve(false);
+                img.src = url;
+            });
+        }
+
+        async function detectFrameCount(basePath, maxSearch = 1200, tolerance = 8) {
+            let lastExisting = -1;
+            let missesInRow = 0;
+
+            for (let i = 0; i < maxSearch; i++) {
+                const ok = await imageExists(basePath + frameName(i));
+
+                if (ok) {
+                    lastExisting = i;
+                    missesInRow = 0;
+                } else {
+                    missesInRow++;
+                    if (lastExisting >= 0 && missesInRow >= tolerance) {
+                        break;
+                    }
+                }
+            }
+
+            return lastExisting + 1;
+        }
+
+        const animations = {};
+
+        async function createFrameAnimation(config) {
+            const img = document.getElementById(config.imageId);
+            const slider = document.getElementById(config.sliderId);
+            const basePath = config.basePath;
+
+            let totalFrames = 0;
+
+            if (typeof config.totalFrames === "number" && config.totalFrames > 0) {
+                totalFrames = config.totalFrames;
+            } else {
+                totalFrames = await detectFrameCount(
+                    basePath,
+                    config.maxSearch || 1200,
+                    config.tolerance || 8
+                );
+            }
+
+            let currentFrame = 0;
+            let timer = null;
+
+            function preloadFrame(i) {
+                if (i < 0 || i >= totalFrames) return;
+                const preloadImg = new Image();
+                preloadImg.src = basePath + frameName(i);
+            }
+
+            function preloadAround(i, radius = 4) {
+                for (let k = 1; k <= radius; k++) {
+                    preloadFrame(i + k);
+                }
+            }
+
+            function updateFrame(i) {
+                if (totalFrames === 0) return;
+
+                currentFrame = Math.max(0, Math.min(totalFrames - 1, i));
+                img.src = basePath + frameName(currentFrame);
+                slider.value = currentFrame;
+                preloadAround(currentFrame, config.preloadRadius || 4);
+            }
+
+            slider.max = Math.max(0, totalFrames - 1);
+
+            window[config.prefix + "GoTo"] = function (i) {
+                updateFrame(i);
+            };
+
+            window[config.prefix + "Next"] = function () {
+                if (totalFrames === 0) return;
+                updateFrame((currentFrame + 1) % totalFrames);
+            };
+
+            window[config.prefix + "Prev"] = function () {
+                if (totalFrames === 0) return;
+                updateFrame((currentFrame - 1 + totalFrames) % totalFrames);
+            };
+
+            window[config.prefix + "First"] = function () {
+                if (totalFrames === 0) return;
+                updateFrame(0);
+            };
+
+            window[config.prefix + "Last"] = function () {
+                if (totalFrames === 0) return;
+                updateFrame(totalFrames - 1);
+            };
+
+            window[config.prefix + "Play"] = function () {
+                window[config.prefix + "Pause"]();
+                if (totalFrames === 0) return;
+
+                timer = setInterval(() => {
+                    window[config.prefix + "Next"]();
+                }, config.interval || 100);
+            };
+
+            window[config.prefix + "Pause"] = function () {
+                if (timer) {
+                    clearInterval(timer);
+                    timer = null;
+                }
+            };
+
+            animations[config.prefix] = {
+                getCurrentFrame: () => currentFrame,
+                getTotalFrames: () => totalFrames,
+                getBasePath: () => basePath
+            };
+
+            if (totalFrames > 0) {
+                preloadFrame(0);
+                preloadFrame(1);
+                preloadFrame(2);
+                updateFrame(0);
+            } else {
+                img.alt = "No frames found";
+            }
+        }
+
+        let modalTimer = null;
+        let modalAnimation = null;
+        let modalCurrentFrame = 0;
+
+        function openAnimationModal(prefix) {
+            const modal = document.getElementById("animationModal");
+            const modalImg = document.getElementById("modalAnimationFrame");
+            const modalSlider = document.getElementById("modalAnimationSlider");
+
+            const anim = animations[prefix];
+            if (!anim) return;
+
+            modalAnimation = anim;
+            modalCurrentFrame = anim.getCurrentFrame();
+
+            function updateModalFrame(i) {
+                const total = modalAnimation.getTotalFrames();
+                modalCurrentFrame = Math.max(0, Math.min(total - 1, i));
+                modalImg.src = modalAnimation.getBasePath() + frameName(modalCurrentFrame);
+                modalSlider.max = Math.max(0, total - 1);
+                modalSlider.value = modalCurrentFrame;
+            }
+
+            window.modalGoTo = function (i) {
+                updateModalFrame(i);
+            };
+
+            window.modalNext = function () {
+                const total = modalAnimation.getTotalFrames();
+                updateModalFrame((modalCurrentFrame + 1) % total);
+            };
+
+            window.modalPrev = function () {
+                const total = modalAnimation.getTotalFrames();
+                updateModalFrame((modalCurrentFrame - 1 + total) % total);
+            };
+
+            window.modalFirst = function () {
+                updateModalFrame(0);
+            };
+
+            window.modalLast = function () {
+                updateModalFrame(modalAnimation.getTotalFrames() - 1);
+            };
+
+            window.modalPlay = function () {
+                window.modalPause();
+                modalTimer = setInterval(() => {
+                    window.modalNext();
+                }, 100);
+            };
+
+            window.modalPause = function () {
+                if (modalTimer) {
+                    clearInterval(modalTimer);
+                    modalTimer = null;
+                }
+            };
+
+            updateModalFrame(modalCurrentFrame);
+            modal.classList.add("active");
+            modal.setAttribute("aria-hidden", "false");
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeAnimationModal() {
+            const modal = document.getElementById("animationModal");
+            modal.classList.remove("active");
+            modal.setAttribute("aria-hidden", "true");
+            document.body.style.overflow = "";
+            if (modalTimer) {
+                clearInterval(modalTimer);
+                modalTimer = null;
+            }
+        }
+
+        document.addEventListener("keydown", function (e) {
+            const modal = document.getElementById("animationModal");
+            if (e.key === "Escape" && modal.classList.contains("active")) {
+                closeAnimationModal();
+            }
+        });
+
+        createFrameAnimation({
+            prefix: "asset",
+            imageId: "assetPricingFrame",
+            sliderId: "assetPricingSlider",
+            basePath: "https://andres1984.github.io/presentacionavolatilidad/asset_pricing_revelation_fixed_frames/",
+            interval: 80,
+            maxSearch: 1200,
+            tolerance: 8,
+            preloadRadius: 3
+        });
+
+        createFrameAnimation({
+            prefix: "ml",
+            imageId: "mlMarketFrame",
+            sliderId: "mlMarketSlider",
+            basePath: "https://andres1984.github.io/presentacionavolatilidad/ml_market_animation_left_panel_frames/",
+            interval: 80,
+            maxSearch: 1200,
+            tolerance: 8,
+            preloadRadius: 3
+        });
+
+        createFrameAnimation({
+            prefix: "price",
+            imageId: "priceMetaphorFrame",
+            sliderId: "priceMetaphorSlider",
+            basePath: "https://andres1984.github.io/presentacionavolatilidad/price_metaphor_classroom_frames/",
+            interval: 80,
+            maxSearch: 1200,
+            tolerance: 8,
+            preloadRadius: 3
+        });
+
+        createFrameAnimation({
+            prefix: "apple",
+            imageId: "appleBtcFrame",
+            sliderId: "appleBtcSlider",
+            basePath: "https://andres1984.github.io/presentacionavolatilidad/apple_btc_flags_floating_frames/",
+            interval: 120,
+            totalFrames: 3703,
+            preloadRadius: 2
+        });
+    </script>
 </body>
 
 </html>
