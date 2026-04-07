@@ -255,32 +255,39 @@
             top: 110px;
         }
 
-        .asset-animation-wrapper {
+        .video-card {
             width: 100%;
             text-align: center;
         }
 
-        .asset-animation-wrapper img {
-            width: min(100%, 420px);
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto 16px auto;
+        .video-shell {
+            position: relative;
             border-radius: 14px;
+            overflow: hidden;
+            background: #ffffff;
             box-shadow: 0 10px 24px rgba(20, 50, 74, 0.08);
-            background: #fff;
         }
 
-        .asset-animation-controls {
+        .research-video {
+            width: 100%;
+            max-width: 100%;
+            display: block;
+            border-radius: 14px;
+            background: #fff;
+            aspect-ratio: 9 / 4;
+            object-fit: cover;
+        }
+
+        .video-actions {
             display: flex;
             justify-content: center;
-            gap: 8px;
-            margin-bottom: 14px;
+            gap: 10px;
+            margin-top: 14px;
             flex-wrap: wrap;
         }
 
-        .asset-animation-controls button {
-            padding: 8px 12px;
+        .video-btn {
+            padding: 9px 14px;
             border: 1px solid rgba(20, 50, 74, 0.12);
             background: white;
             color: var(--navy);
@@ -288,18 +295,18 @@
             cursor: pointer;
             font-weight: 600;
             transition: all 0.2s ease;
-            min-width: 52px;
+            min-width: 88px;
         }
 
-        .asset-animation-controls button:hover {
+        .video-btn:hover {
             background: var(--navy);
             color: white;
         }
 
-        .animation-slider {
-            width: 100%;
-            max-width: 420px;
-            accent-color: var(--gold);
+        .video-note {
+            margin-top: 10px;
+            font-size: 0.88rem;
+            color: var(--muted);
         }
 
         .grid-2 {
@@ -364,7 +371,7 @@
 
         .animation-modal-content {
             position: relative;
-            width: min(92vw, 1100px);
+            width: min(92vw, 1200px);
             max-height: 90vh;
             margin: 4vh auto;
             background: #ffffff;
@@ -372,20 +379,6 @@
             padding: 22px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
             overflow: hidden;
-        }
-
-        .animation-modal-inner {
-            text-align: center;
-        }
-
-        .animation-modal-inner img {
-            width: min(100%, 980px);
-            max-height: 68vh;
-            height: auto;
-            display: block;
-            margin: 0 auto 18px auto;
-            border-radius: 16px;
-            background: #fff;
         }
 
         .animation-modal-close {
@@ -401,34 +394,24 @@
             font-size: 1rem;
             cursor: pointer;
             font-weight: 700;
+            z-index: 2;
         }
 
         .animation-modal-close:hover {
             background: #1f4766;
         }
 
-        .modal-controls {
-            justify-content: center;
-            margin-bottom: 14px;
-        }
-
-        .modal-slider {
-            max-width: 900px;
+        .modal-video {
             width: 100%;
-            accent-color: var(--gold);
+            max-height: 78vh;
+            border-radius: 16px;
+            display: block;
+            background: #fff;
         }
 
         @media (max-width: 1100px) {
             .step-layout {
                 grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.85fr);
-            }
-
-            .asset-animation-wrapper img {
-                width: min(100%, 380px);
-            }
-
-            .animation-slider {
-                max-width: 380px;
             }
         }
 
@@ -454,14 +437,6 @@
                 position: static;
             }
 
-            .asset-animation-wrapper img {
-                width: min(100%, 520px);
-            }
-
-            .animation-slider {
-                max-width: 520px;
-            }
-
             .grid-2 {
                 grid-template-columns: 1fr;
             }
@@ -470,10 +445,6 @@
                 width: min(96vw, 1100px);
                 margin: 2vh auto;
                 padding: 18px;
-            }
-
-            .animation-modal-inner img {
-                max-height: 60vh;
             }
         }
 
@@ -543,9 +514,6 @@
                         <div class="step-layout">
                             <div class="step-text">
                                 <h3>Market Price A Language with Its Own Grammar</h3>
-
-
-
                                 <p class="meta">April 2026</p>
 
                                 <p class="lead">
@@ -708,23 +676,23 @@
 
                             <div class="step-visual">
                                 <div class="animation-box">
-                                    <div class="asset-animation-wrapper">
-                                        <img id="assetPricingFrame"
-                                            src="https://andres1984.github.io/presentacionavolatilidad/asset_pricing_revelation_fixed_frames/frame0000000.png"
-                                            alt="Asset pricing animation">
-
-                                        <div class="asset-animation-controls">
-                                            <button type="button" onclick="assetFirst()">⏮</button>
-                                            <button type="button" onclick="assetPrev()">◀</button>
-                                            <button type="button" onclick="assetPlay()">Play</button>
-                                            <button type="button" onclick="assetPause()">Pause</button>
-                                            <button type="button" onclick="assetNext()">▶</button>
-                                            <button type="button" onclick="assetLast()">⏭</button>
-                                            <button type="button" onclick="openAnimationModal('asset')">Expand</button>
+                                    <div class="video-card">
+                                        <div class="video-shell">
+                                            <video class="research-video" controls muted loop playsinline
+                                                preload="metadata"
+                                                poster="presentacionavolatilidad/asset_pricing_revelation_fixed_frames/frame0000000.png">
+                                                <source
+                                                    data-src="presentacionavolatilidad/asset_pricing_revelation_fixed.webm"
+                                                    type="video/webm">
+                                                <source
+                                                    data-src="presentacionavolatilidad/asset_pricing_revelation_fixed.mp4"
+                                                    type="video/mp4">
+                                            </video>
                                         </div>
-
-                                        <input id="assetPricingSlider" class="animation-slider" type="range" min="0"
-                                            max="0" step="1" value="0" oninput="assetGoTo(parseInt(this.value,10))">
+                                        <div class="video-actions">
+                                            <button class="video-btn" type="button" data-expand="asset">Expand</button>
+                                        </div>
+                                        <div class="video-note">Compressed video version for faster loading.</div>
                                     </div>
                                 </div>
                             </div>
@@ -755,23 +723,23 @@
 
                             <div class="step-visual">
                                 <div class="animation-box">
-                                    <div class="asset-animation-wrapper">
-                                        <img id="mlMarketFrame"
-                                            src="https://andres1984.github.io/presentacionavolatilidad/ml_market_animation_left_panel_frames/frame0000000.png"
-                                            alt="ML market animation">
-
-                                        <div class="asset-animation-controls">
-                                            <button type="button" onclick="mlFirst()">⏮</button>
-                                            <button type="button" onclick="mlPrev()">◀</button>
-                                            <button type="button" onclick="mlPlay()">Play</button>
-                                            <button type="button" onclick="mlPause()">Pause</button>
-                                            <button type="button" onclick="mlNext()">▶</button>
-                                            <button type="button" onclick="mlLast()">⏭</button>
-                                            <button type="button" onclick="openAnimationModal('ml')">Expand</button>
+                                    <div class="video-card">
+                                        <div class="video-shell">
+                                            <video class="research-video" controls muted loop playsinline
+                                                preload="metadata"
+                                                poster="presentacionavolatilidad/ml_market_animation_left_panel_frames/frame0000000.png">
+                                                <source
+                                                    data-src="presentacionavolatilidad/ml_market_animation_left_panel.webm"
+                                                    type="video/webm">
+                                                <source
+                                                    data-src="presentacionavolatilidad/ml_market_animation_left_panel.mp4"
+                                                    type="video/mp4">
+                                            </video>
                                         </div>
-
-                                        <input id="mlMarketSlider" class="animation-slider" type="range" min="0" max="0"
-                                            step="1" value="0" oninput="mlGoTo(parseInt(this.value,10))">
+                                        <div class="video-actions">
+                                            <button class="video-btn" type="button" data-expand="ml">Expand</button>
+                                        </div>
+                                        <div class="video-note">Video replaces frame-by-frame rendering.</div>
                                     </div>
                                 </div>
                             </div>
@@ -797,23 +765,22 @@
 
                             <div class="step-visual">
                                 <div class="animation-box">
-                                    <div class="asset-animation-wrapper">
-                                        <img id="priceMetaphorFrame"
-                                            src="https://andres1984.github.io/presentacionavolatilidad/price_metaphor_classroom_frames/frame0000000.png"
-                                            alt="Price metaphor classroom animation">
-
-                                        <div class="asset-animation-controls">
-                                            <button type="button" onclick="priceFirst()">⏮</button>
-                                            <button type="button" onclick="pricePrev()">◀</button>
-                                            <button type="button" onclick="pricePlay()">Play</button>
-                                            <button type="button" onclick="pricePause()">Pause</button>
-                                            <button type="button" onclick="priceNext()">▶</button>
-                                            <button type="button" onclick="priceLast()">⏭</button>
-                                            <button type="button" onclick="openAnimationModal('price')">Expand</button>
+                                    <div class="video-card">
+                                        <div class="video-shell">
+                                            <video class="research-video" controls muted loop playsinline
+                                                preload="metadata"
+                                                poster="presentacionavolatilidad/price_metaphor_classroom_frames/frame0000000.png">
+                                                <source
+                                                    data-src="presentacionavolatilidad/price_metaphor_classroom.webm"
+                                                    type="video/webm">
+                                                <source data-src="presentacionavolatilidad/price_metaphor_classroom.mp4"
+                                                    type="video/mp4">
+                                            </video>
                                         </div>
-
-                                        <input id="priceMetaphorSlider" class="animation-slider" type="range" min="0"
-                                            max="0" step="1" value="0" oninput="priceGoTo(parseInt(this.value,10))">
+                                        <div class="video-actions">
+                                            <button class="video-btn" type="button" data-expand="price">Expand</button>
+                                        </div>
+                                        <div class="video-note">Optimized for GitHub Pages and smaller screens.</div>
                                     </div>
                                 </div>
                             </div>
@@ -839,23 +806,22 @@
 
                             <div class="step-visual">
                                 <div class="animation-box">
-                                    <div class="asset-animation-wrapper">
-                                        <img id="appleBtcFrame"
-                                            src="https://andres1984.github.io/presentacionavolatilidad/apple_btc_flags_floating_frames/frame0000000.png"
-                                            alt="Apple and BTC flags floating animation">
-
-                                        <div class="asset-animation-controls">
-                                            <button type="button" onclick="appleFirst()">⏮</button>
-                                            <button type="button" onclick="applePrev()">◀</button>
-                                            <button type="button" onclick="applePlay()">Play</button>
-                                            <button type="button" onclick="applePause()">Pause</button>
-                                            <button type="button" onclick="appleNext()">▶</button>
-                                            <button type="button" onclick="appleLast()">⏭</button>
-                                            <button type="button" onclick="openAnimationModal('apple')">Expand</button>
+                                    <div class="video-card">
+                                        <div class="video-shell">
+                                            <video class="research-video" controls muted loop playsinline
+                                                preload="metadata"
+                                                poster="presentacionavolatilidad/apple_btc_flags_floating_frames/frame0000000.png">
+                                                <source
+                                                    data-src="presentacionavolatilidad/apple_btc_flags_floating.webm"
+                                                    type="video/webm">
+                                                <source data-src="presentacionavolatilidad/apple_btc_flags_floating.mp4"
+                                                    type="video/mp4">
+                                            </video>
                                         </div>
-
-                                        <input id="appleBtcSlider" class="animation-slider" type="range" min="0" max="0"
-                                            step="1" value="0" oninput="appleGoTo(parseInt(this.value,10))">
+                                        <div class="video-actions">
+                                            <button class="video-btn" type="button" data-expand="apple">Expand</button>
+                                        </div>
+                                        <div class="video-note">Uses the compressed Apple/BTC animation file.</div>
                                     </div>
                                 </div>
                             </div>
@@ -891,61 +857,9 @@
                 </div>
             </section>
 
-            <section id="methods">
-                <div class="section-card">
-                    <h2 class="section-title">Methods and Foundations</h2>
-                    <div class="grid-2">
-                        <div class="info-card">
-                            <h3>Research Foundations</h3>
-                            <p>
-                                My work is grounded in asset valuation, behavioral finance, stochastic modeling, and
-                                Bayesian inference. Across these areas, I aim to build models that remain economically
-                                meaningful while being statistically rigorous.
-                            </p>
-                        </div>
-                        <div class="info-card">
-                            <h3>Methodological Toolkit</h3>
-                            <p>
-                                Bayesian hierarchical models, stochastic volatility, risk-factor models, market
-                                microstructure, machine learning, data visualization, and computational methods for
-                                uncertainty quantification.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
-            <section id="visual">
-                <div class="section-card">
-                    <h2 class="section-title">Visual Agenda</h2>
-                    <p>
-                        This research page is designed to connect directly with animated explanations. Each animation
-                        can function as a visual chapter of the agenda.
-                    </p>
 
-                    <div class="grid-2">
-                        <div class="info-card">
-                            <h3>Animation 1 — Information enters the market</h3>
-                            <p>Signals appear, move, and organize the first structure of price discovery.</p>
-                        </div>
 
-                        <div class="info-card">
-                            <h3>Animation 2 — Investors form submarkets</h3>
-                            <p>Clusters emerge as investors react differently to the same information.</p>
-                        </div>
-
-                        <div class="info-card">
-                            <h3>Animation 3 — Price emerges from signal and noise</h3>
-                            <p>Market price appears as a layer shaped by structure, expectations, and uncertainty.</p>
-                        </div>
-
-                        <div class="info-card">
-                            <h3>Animation 4 — Learning under uncertainty</h3>
-                            <p>Bayesian and machine learning tools identify hidden patterns and residual noise.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             <section>
                 <div class="section-card">
@@ -974,288 +888,88 @@
 
     <div id="animationModal" class="animation-modal" aria-hidden="true">
         <div class="animation-modal-backdrop" onclick="closeAnimationModal()"></div>
-
         <div class="animation-modal-content">
             <button class="animation-modal-close" type="button" onclick="closeAnimationModal()">✕</button>
-
-            <div class="animation-modal-inner">
-                <img id="modalAnimationFrame" src="" alt="Expanded animation">
-
-                <div class="asset-animation-controls modal-controls">
-                    <button type="button" onclick="modalFirst()">⏮</button>
-                    <button type="button" onclick="modalPrev()">◀</button>
-                    <button type="button" onclick="modalPlay()">Play</button>
-                    <button type="button" onclick="modalPause()">Pause</button>
-                    <button type="button" onclick="modalNext()">▶</button>
-                    <button type="button" onclick="modalLast()">⏭</button>
-                </div>
-
-                <input id="modalAnimationSlider" class="modal-slider" type="range" min="0" max="0" step="1" value="0"
-                    oninput="modalGoTo(parseInt(this.value,10))">
-            </div>
+            <video id="modalVideo" class="modal-video" controls playsinline></video>
         </div>
     </div>
 
     <script>
-        function frameName(i) {
-            return "frame" + String(i).padStart(7, "0") + ".png";
-        }
+        const videoMap = {
+            asset: {
+                webm: "presentacionavolatilidad/asset_pricing_revelation_fixed.webm",
+                mp4: "presentacionavolatilidad/asset_pricing_revelation_fixed.mp4"
+            },
+            ml: {
+                webm: "presentacionavolatilidad/ml_market_animation_left_panel.webm",
+                mp4: "presentacionavolatilidad/ml_market_animation_left_panel.mp4"
+            },
+            price: {
+                webm: "presentacionavolatilidad/price_metaphor_classroom.webm",
+                mp4: "presentacionavolatilidad/price_metaphor_classroom.mp4"
+            },
+            apple: {
+                webm: "presentacionavolatilidad/apple_btc_flags_floating.webm",
+                mp4: "presentacionavolatilidad/apple_btc_flags_floating.mp4"
+            }
+        };
 
-        async function imageExists(url) {
-            return new Promise((resolve) => {
-                const img = new Image();
-                img.onload = () => resolve(true);
-                img.onerror = () => resolve(false);
-                img.src = url;
+        function loadVideoSources(video) {
+            if (video.dataset.loaded === "true") return;
+            const sources = video.querySelectorAll("source[data-src]");
+            sources.forEach(source => {
+                source.src = source.dataset.src;
             });
+            video.load();
+            video.dataset.loaded = "true";
         }
 
-        async function detectFrameCount(basePath, maxSearch = 1200, tolerance = 8) {
-            let lastExisting = -1;
-            let missesInRow = 0;
+        const videos = document.querySelectorAll(".research-video");
 
-            for (let i = 0; i < maxSearch; i++) {
-                const ok = await imageExists(basePath + frameName(i));
-
-                if (ok) {
-                    lastExisting = i;
-                    missesInRow = 0;
-                } else {
-                    missesInRow++;
-                    if (lastExisting >= 0 && missesInRow >= tolerance) {
-                        break;
-                    }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    loadVideoSources(entry.target);
+                    observer.unobserve(entry.target);
                 }
-            }
+            });
+        }, { rootMargin: "250px 0px" });
 
-            return lastExisting + 1;
-        }
+        videos.forEach(video => observer.observe(video));
 
-        const animations = {};
+        const modal = document.getElementById("animationModal");
+        const modalVideo = document.getElementById("modalVideo");
 
-        async function createFrameAnimation(config) {
-            const img = document.getElementById(config.imageId);
-            const slider = document.getElementById(config.sliderId);
-            const basePath = config.basePath;
+        document.querySelectorAll("[data-expand]").forEach(button => {
+            button.addEventListener("click", () => {
+                const key = button.dataset.expand;
+                const config = videoMap[key];
+                if (!config) return;
 
-            let totalFrames = 0;
-
-            if (typeof config.totalFrames === "number" && config.totalFrames > 0) {
-                totalFrames = config.totalFrames;
-            } else {
-                totalFrames = await detectFrameCount(
-                    basePath,
-                    config.maxSearch || 1200,
-                    config.tolerance || 8
-                );
-            }
-
-            let currentFrame = 0;
-            let timer = null;
-
-            function preloadFrame(i) {
-                if (i < 0 || i >= totalFrames) return;
-                const preloadImg = new Image();
-                preloadImg.src = basePath + frameName(i);
-            }
-
-            function preloadAround(i, radius = 4) {
-                for (let k = 1; k <= radius; k++) {
-                    preloadFrame(i + k);
-                }
-            }
-
-            function updateFrame(i) {
-                if (totalFrames === 0) return;
-
-                currentFrame = Math.max(0, Math.min(totalFrames - 1, i));
-                img.src = basePath + frameName(currentFrame);
-                slider.value = currentFrame;
-                preloadAround(currentFrame, config.preloadRadius || 4);
-            }
-
-            slider.max = Math.max(0, totalFrames - 1);
-
-            window[config.prefix + "GoTo"] = function (i) {
-                updateFrame(i);
-            };
-
-            window[config.prefix + "Next"] = function () {
-                if (totalFrames === 0) return;
-                updateFrame((currentFrame + 1) % totalFrames);
-            };
-
-            window[config.prefix + "Prev"] = function () {
-                if (totalFrames === 0) return;
-                updateFrame((currentFrame - 1 + totalFrames) % totalFrames);
-            };
-
-            window[config.prefix + "First"] = function () {
-                if (totalFrames === 0) return;
-                updateFrame(0);
-            };
-
-            window[config.prefix + "Last"] = function () {
-                if (totalFrames === 0) return;
-                updateFrame(totalFrames - 1);
-            };
-
-            window[config.prefix + "Play"] = function () {
-                window[config.prefix + "Pause"]();
-                if (totalFrames === 0) return;
-
-                timer = setInterval(() => {
-                    window[config.prefix + "Next"]();
-                }, config.interval || 100);
-            };
-
-            window[config.prefix + "Pause"] = function () {
-                if (timer) {
-                    clearInterval(timer);
-                    timer = null;
-                }
-            };
-
-            animations[config.prefix] = {
-                getCurrentFrame: () => currentFrame,
-                getTotalFrames: () => totalFrames,
-                getBasePath: () => basePath
-            };
-
-            if (totalFrames > 0) {
-                preloadFrame(0);
-                preloadFrame(1);
-                preloadFrame(2);
-                updateFrame(0);
-            } else {
-                img.alt = "No frames found";
-            }
-        }
-
-        let modalTimer = null;
-        let modalAnimation = null;
-        let modalCurrentFrame = 0;
-
-        function openAnimationModal(prefix) {
-            const modal = document.getElementById("animationModal");
-            const modalImg = document.getElementById("modalAnimationFrame");
-            const modalSlider = document.getElementById("modalAnimationSlider");
-
-            const anim = animations[prefix];
-            if (!anim) return;
-
-            modalAnimation = anim;
-            modalCurrentFrame = anim.getCurrentFrame();
-
-            function updateModalFrame(i) {
-                const total = modalAnimation.getTotalFrames();
-                modalCurrentFrame = Math.max(0, Math.min(total - 1, i));
-                modalImg.src = modalAnimation.getBasePath() + frameName(modalCurrentFrame);
-                modalSlider.max = Math.max(0, total - 1);
-                modalSlider.value = modalCurrentFrame;
-            }
-
-            window.modalGoTo = function (i) {
-                updateModalFrame(i);
-            };
-
-            window.modalNext = function () {
-                const total = modalAnimation.getTotalFrames();
-                updateModalFrame((modalCurrentFrame + 1) % total);
-            };
-
-            window.modalPrev = function () {
-                const total = modalAnimation.getTotalFrames();
-                updateModalFrame((modalCurrentFrame - 1 + total) % total);
-            };
-
-            window.modalFirst = function () {
-                updateModalFrame(0);
-            };
-
-            window.modalLast = function () {
-                updateModalFrame(modalAnimation.getTotalFrames() - 1);
-            };
-
-            window.modalPlay = function () {
-                window.modalPause();
-                modalTimer = setInterval(() => {
-                    window.modalNext();
-                }, 100);
-            };
-
-            window.modalPause = function () {
-                if (modalTimer) {
-                    clearInterval(modalTimer);
-                    modalTimer = null;
-                }
-            };
-
-            updateModalFrame(modalCurrentFrame);
-            modal.classList.add("active");
-            modal.setAttribute("aria-hidden", "false");
-            document.body.style.overflow = "hidden";
-        }
+                modalVideo.innerHTML = `
+                    <source src="${config.webm}" type="video/webm">
+                    <source src="${config.mp4}" type="video/mp4">
+                `;
+                modalVideo.load();
+                modal.classList.add("active");
+                modal.setAttribute("aria-hidden", "false");
+                document.body.style.overflow = "hidden";
+            });
+        });
 
         function closeAnimationModal() {
-            const modal = document.getElementById("animationModal");
             modal.classList.remove("active");
             modal.setAttribute("aria-hidden", "true");
+            modalVideo.pause();
+            modalVideo.removeAttribute("src");
+            modalVideo.innerHTML = "";
             document.body.style.overflow = "";
-            if (modalTimer) {
-                clearInterval(modalTimer);
-                modalTimer = null;
-            }
         }
 
         document.addEventListener("keydown", function (e) {
-            const modal = document.getElementById("animationModal");
             if (e.key === "Escape" && modal.classList.contains("active")) {
                 closeAnimationModal();
             }
-        });
-
-        createFrameAnimation({
-            prefix: "asset",
-            imageId: "assetPricingFrame",
-            sliderId: "assetPricingSlider",
-            basePath: "https://andres1984.github.io/presentacionavolatilidad/asset_pricing_revelation_fixed_frames/",
-            interval: 80,
-            maxSearch: 1200,
-            tolerance: 8,
-            preloadRadius: 3
-        });
-
-        createFrameAnimation({
-            prefix: "ml",
-            imageId: "mlMarketFrame",
-            sliderId: "mlMarketSlider",
-            basePath: "https://andres1984.github.io/presentacionavolatilidad/ml_market_animation_left_panel_frames/",
-            interval: 80,
-            maxSearch: 1200,
-            tolerance: 8,
-            preloadRadius: 3
-        });
-
-        createFrameAnimation({
-            prefix: "price",
-            imageId: "priceMetaphorFrame",
-            sliderId: "priceMetaphorSlider",
-            basePath: "https://andres1984.github.io/presentacionavolatilidad/price_metaphor_classroom_frames/",
-            interval: 80,
-            maxSearch: 1200,
-            tolerance: 8,
-            preloadRadius: 3
-        });
-
-        createFrameAnimation({
-            prefix: "apple",
-            imageId: "appleBtcFrame",
-            sliderId: "appleBtcSlider",
-            basePath: "https://andres1984.github.io/presentacionavolatilidad/apple_btc_flags_floating_frames/",
-            interval: 120,
-            totalFrames: 3703,
-            preloadRadius: 2
         });
     </script>
 </body>
